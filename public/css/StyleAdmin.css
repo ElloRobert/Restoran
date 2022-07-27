@@ -1,0 +1,94 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+   }
+     
+     form label{
+        position:relative;
+         text-align: left;
+         font-size: 1.5vw;
+         text-align: left;
+         font-weight: bold;
+         
+         
+         
+     }
+     form input{
+         text-align: left;
+         font-size: 3vh;
+         border: 1.7px solid black;
+         line-height: 2vw;
+         height: 3vw;
+         width: 28vw;
+         margin-top: 1.5vh;
+         margin-bottom: 1.5vh;
+     }
+  
+    
+     h1{
+         margin-top: 0.3vw;
+     }
+     .uredi{
+         position: relative;
+         border: 2px solid black;
+         margin-left: 30vw;
+         padding-right:5vw;
+         padding-left: 6vw;
+         padding-bottom: 8.5vw;
+         padding-top: 1.7vw ;
+         height: 20vw;
+         width: 30vw;
+         line-height: 2vw;
+         border-radius: 5%;
+         text-align: left;
+         margin-bottom: 5vw;
+         margin-top: 4vw;
+         background-color: rgb(255, 255, 255);
+     }
+     .natrag{
+         position: relative;
+         left: -17vw;
+         top:-3.5vw;
+         height: 2vw;
+         width: 2vw;
+     }
+     .naslov{
+      text-align: center;
+     }
+     .button-confirm{
+  
+      background-color: #a50303;
+      border: none;
+       color: black;
+       padding: 5px 15px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       margin: 2px 2px;
+       margin-top: 0vh;
+       cursor: pointer;
+       font-size: 2vw;
+       font-weight: bold;
+       text-align: center;
+       height: 3.5vw;
+       width: 28vw;
+    
+    }
+     
+    .button-confirm:hover{
+      border: 0.4vh solid;
+      padding: 10px;
+      box-shadow: 4px 6px;
+      font-size: 1.7vw;
+    }
+    i{
+      color: black;
+    }
+  
+     i:hover{
+     
+      text-shadow: 8px 8px 8px #58585f;
+      transition: 0.1s;
+    
+    }

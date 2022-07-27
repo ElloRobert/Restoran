@@ -1,0 +1,233 @@
+*{
+    scroll-behavior: smooth; 
+    box-sizing: border-box;
+  
+ }
+ body, html{
+   margin:0;
+   padding:0 ;
+ }
+ /*Navigacija*/
+ nav{
+     position: fixed;
+     top:0vw;
+     left: 0vw;
+     right: 0vw;
+     bottom: 0vw;
+     text-align: center;
+     height: 3vw;
+     width: 100vw;
+     background-color:rgb(0, 0, 0);
+     opacity: 80%;
+    
+     
+  
+ }
+ 
+ #main-menu a{
+     position: relative;
+     top: 0.9vw;
+     text-align: center;
+     font-size: 1.8vh;
+     text-decoration: none;
+     color: white;
+     padding: 0.8vw 2vw;
+     padding-top: 5vw;
+     height: 2vw;
+     border-right: 0.2vw solid rgb(15, 15, 15);
+    
+ }
+ 
+ #main-menu a:hover{
+     border-right: 0.2vw solid white;
+     border-left: 0.2vw solid white;
+     text-transform: uppercase;
+ }
+ 
+ #prviLink{
+     border-left: 0.2vw solid rgb(15, 15, 15);
+ }
+ .sidenav {
+     height: 10vw;
+     width:  4vw;
+     position: fixed;
+     z-index: 1;
+     top: 10vw;
+     right: 0;
+     background-color:inherit;
+     overflow-x: hidden;
+     padding-top: 20px;
+   }
+   
+   .sidenav a {
+     padding: 6px 8px 6px 16px;
+     text-decoration: none;
+     font-size: 25px;
+     color: rgb(222, 194, 33);
+     display: block;
+   }
+   
+   .sidenav a:hover {
+     color: #f1f1f1;
+   }
+   
+ /*Narudzbe poslagani proizvodi*/
+ .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 20vw; 
+     margin-left:10vw;
+     margin-right: 10vw;
+     padding-bottom: 2vh;
+     text-align: center ;
+     font-family: arial;
+     display: inline-grid;
+     grid-template-columns: auto ;
+    
+     
+     
+   }
+   
+   .price {
+     color: grey;
+     font-size: 2.5vh;
+   }
+   
+   .card .button {
+     border: none;
+     outline: 0;
+     padding: 1.7vh;
+     padding-left: 2vw;
+     padding-right: 2vw;
+     margin-bottom: 3vh ;
+     color: white;
+     background-color:#000;
+     text-align: center;
+     cursor: pointer;
+     font-size: 2vh;
+     text-decoration: none;
+     
+   }
+   
+   .card .button:hover {
+     opacity: 0.7;
+   }
+ 
+ .Potvrdi{
+   position: relative;
+   left: 87vw;
+   bottom:5vh;
+   border: none;
+   outline: 0;
+   padding: 1.7vh;
+   padding-left: 2vw;
+   padding-right: 2vw;
+   margin-bottom: 3vh ;
+   color: white;
+   background-color:#000;
+   text-align: center;
+   cursor: pointer;
+   font-size: 2vh;
+   text-decoration: none;
+ 
+ }
+ .Potvrdi:hover {
+   opacity: 0.7;
+ }
+ 
+   .section2 {
+    text-align: center;
+     padding-top: 5vw;
+     padding-bottom: 5vw;
+     height: 97vh;
+     background-color: white;
+   }
+ 
+   /* Pocetna*/
+   .section1 {
+     background-image: url("../Slike/Restoran.png");
+     background-repeat: no-repeat;
+     background-size: cover;
+     color: rgb(230, 196, 9);
+     text-align: center;
+     font-size: 3vh;
+     padding-top: 4vw;
+     padding-bottom: 5vw;
+     height: 97vh;
+     font-family: "Sofia", sans-serif;
+ 
+     
+   }
+ 
+  .section1 h1{
+   font-size: 15vh;
+   text-shadow: 5vh 5vh 5vh #000000;
+  }
+  .section1 p{
+    font-size: 5vh;
+    text-shadow: 2vh 2vh 2vh #000000;
+  }
+ 
+ 
+ /*O nama*/
+ .section3 {
+     padding-top: 1vh;
+     margin-right: 0vw;
+     width: 100%;
+     height: 85vh;
+     padding-bottom: 10vw;
+     box-sizing: border-box;
+     background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+    
+   }
+   #kontakt{
+     padding-left: 5vw;
+   }
+   input{
+     height: 4vh;
+     width: 30vw;
+   }
+   textarea{
+     height: 15vh;
+     width: 30vw;
+   }
+ 
+   .stupac {
+     float: left;
+     width: 50%;
+     height: 75vh;
+   }
+   footer{
+     
+     text-align: center;
+     padding-bottom: 1vh;
+   }
+   .mapa{
+     position: relative;
+     left: 16vw;
+     bottom: 10vh;
+     height: 30vh;
+     width: 25vw;
+     border: 1vw double black;
+   }
+   .potvrdiUpit{
+    
+     border: none;
+     outline: 0;
+     height: 6vh;
+     color: white;
+     background-color:#000;
+     text-align: center;
+     cursor: pointer;
+     font-size: 2vh;
+     text-decoration: none;
+   }
+   .admin{
+    position: relative;
+    left: 25vw;
+  }
+  #kosarica{
+    position: relative;
+    right: 28vw
+  }
+
+

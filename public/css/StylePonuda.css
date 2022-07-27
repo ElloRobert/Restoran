@@ -1,0 +1,81 @@
+*{
+    scroll-behavior: smooth; 
+    box-sizing: border-box;
+   
+ }
+ html, body{
+  padding: 0;
+  margin: 0;
+  background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+ }
+   
+ /*Narudzbe poslagani proizvodi*/
+ .card {
+     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+     max-width: 15vw; 
+    background-color: white;
+     margin-bottom: 5vh;
+     padding-bottom: 2vh;
+     text-align: center ;
+     font-family: arial;
+     display: inline-grid;
+     grid-template-columns: auto ;
+    margin-left: 2.5vw;
+    margin-right: 2.5vw;
+     
+     
+   }
+   
+   .price {
+     color: grey;
+     font-size: 2.5vh;
+   }
+   
+   .card .button {
+     border: none;
+     outline: 0;
+     padding: 1.7vh;
+     padding-left: 2vw;
+     padding-right: 2vw;
+     margin-bottom: 3vh ;
+     color: rgb(248, 248, 248);
+     background-color: rgb(0, 0, 0);;
+     text-align: center;
+     cursor: pointer;
+     font-size: 2vh;
+     text-decoration: none;
+     
+   }
+   
+   .card .button:hover {
+     opacity: 0.7;
+   }
+ 
+   .section1 {
+   
+    text-align: center;
+     height: 140vh;
+   }
+
+   i{
+    color: black;
+    position:relative;
+    right: 27vw;
+    bottom: 7vh;
+
+  }
+
+   i:hover{
+   
+    text-shadow: 8px 8px 8px #58585f;
+    transition: 0.1s;
+  
+  }
+ 
+   
+ 
+ 
+   
+ 
+   
+ 

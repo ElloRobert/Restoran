@@ -1,0 +1,302 @@
+html,body{
+    padding: 0;
+    margin: 0;
+    background-color:rgb(224, 224, 224);
+   }
+     
+     form label{
+        position:relative;
+         text-align: left;
+         font-size: 1.5vw;
+         text-align: left;
+         font-weight: bold;
+         
+         
+         
+     }
+  .card{
+    margin:auto;
+    width: 90vw;
+  }
+    
+     h1{
+         margin-top: 5vh;
+         text-align: center;
+     }
+     .uredi{
+         position: relative;
+         border: 2px solid black;
+         margin-left: 30vw;
+         padding-right:6vw;
+         padding-left: 6vw;
+         padding-bottom: 3vw;
+         padding-top: 3vw ;
+         width: fit-content;
+         block-size: fit-content;
+         line-height: 2vw;
+         border-radius: 5%;
+         text-align: left;
+         background-color: rgb(255, 255, 255);
+     }
+     .urediPodatke
+     {
+      position: relative;
+      border: 2px solid black;
+      margin-left: 30vw;
+      padding-right:5vw;
+      padding-left: 6vw;
+      padding-bottom: 5vh;
+      padding-top: 5vh ;
+      width: fit-content;
+      block-size: fit-content;
+      line-height: 2vw;
+      border-radius: 5%;
+      text-align: left;
+      margin-bottom: 10vw;
+      margin-top: 10vw;
+      background-color: rgb(255, 255, 255);
+  }
+    
+  
+
+     
+     .odjava{
+        position: relative;
+       left: 75vw;
+       top: 0vh
+
+     }
+     .dropdown-menu{
+      margin:0;
+      padding:0;
+     }
+
+     .natrag{
+
+        position:relative;
+        right: 10vw;
+        top: 2vh;
+     }
+     .natrag-edit{
+      position:relative;
+      right: 3vw;
+      top: -7vh;
+   }
+
+   
+     .button-potvrdi{
+  
+      background-color: #0a670d;
+      border: none;
+       color: black;
+       padding: 5px 15px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       margin: 2px 2px;
+       margin-top: 0vh;
+       cursor: pointer;
+       font-size: 2vw;
+       font-weight: bold;
+       text-align: center;
+       height: 3.5vw;
+       width: 28vw;
+    
+    }
+     
+    .button-potvrdi:hover{
+      border: 0.4vh solid;
+      padding: 10px;
+      box-shadow: 4px 6px;
+      font-size: 1.7vw;
+    }
+    i{
+      color: black;
+    }
+  
+     i:hover{
+     
+      text-shadow: 8px 8px 8px #58585f;
+      transition: 0.1s;
+    
+    }
+    .narudzbe{
+      width: 90%;
+      margin: auto;
+      margin-top: 3vw;
+      margin-bottom: 5vh;
+    }
+    .upiti{
+      width: 90%;
+      margin: auto;
+      margin-top: 3vw;
+      margin-bottom: 5vh;
+    }
+    .proizvodi{
+      width: 90%;
+      margin: auto;
+      margin-top: 3vw;
+      margin-bottom: 5vh;
+    }
+    .korisnik{
+      width: 90%;
+      margin: auto;
+      margin-top: 3vw;
+      margin-bottom: 5vh;
+    }
+   .nav-item :hover{
+      cursor: pointer;
+   }
+  
+    .tablica {
+        width: 90%;
+        margin: auto;
+        margin-top: 3vw;
+        margin-bottom: 5vh;
+        border-collapse: collapse;
+        border-top: 2px solid black;
+        border-bottom: 2px solid black;
+       
+        }
+     h2{
+        width: 90%;
+        margin: auto;
+        margin-top: 2vw;
+     }
+
+     .table_id th{
+      background-color: rgb(179, 176, 183);
+      color: black;
+      text-align: center;
+     }
+
+      .tablica th{
+        background-color: rgb(144, 140, 149);
+        color: black;
+         font-size: 1.4vw;
+         text-align: center;
+        }
+        .tablica td {
+        border-top: 0.1vw solid rgb(144, 140, 149); 
+        padding: 0.3vw; 
+        text-align: center;
+        
+        }
+        
+      .button-obrisi{
+        background-color: #e30000;
+        width: 5vw;
+        height: 3vh;
+        border: none;
+         color: black;
+         padding: 5px 15px;
+         padding-top: 1.3vh;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 2px 2px;
+         cursor: pointer;
+         border-radius:5% ;
+         font-weight: bold;
+      }
+      .button-potvrdi{
+        background-color: #029109;
+        width: 5vw;
+        height: 3vh;
+        border: none;
+         color: black;
+         padding: 5px 15px;
+         padding-top: 1.3vh;
+         text-align: center;
+         text-decoration: none;
+         display: inline-block;
+         font-size: 16px;
+         margin: 2px 2px;
+         cursor: pointer;
+         border-radius:5% ;
+         font-weight: bold;
+      }
+
+      form label{
+        position:relative;
+         text-align: left;
+         font-size: 1.5vw;
+         text-align: left;
+         font-weight: bold;
+            
+     }
+     form input{
+         text-align: left;
+         font-size: 3vh;
+         border: 1.7px solid black;
+         line-height: 2vw;
+         height: 3vw;
+         width: 35vw;
+         margin-top: 1.5vh;
+         margin-bottom: 1.5vh;
+     }
+      .form-check-input{
+         position: relative;
+         left: 3vw;
+         top: 0.5vh;
+        border: 1.7px solid black;
+        line-height: 2vw;
+        height: 1.2vw;
+        width: 1.2vw;
+        margin-top: 1.5vh;
+       
+     }
+  
+  
+    
+     h1{
+         margin-top: 0.1vw;
+     }
+     
+ 
+     .button-confirm{
+  
+      background-color: #0a670d;
+      border: none;
+       color: black;
+       padding: 5px 15px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       margin: 2px 2px;
+       margin-top: 1.5vh;
+       cursor: pointer;
+       font-size: 2vw;
+       font-weight: bold;
+       text-align: center;
+       height: 3vw;
+       width: 28vw;
+    
+    }
+     
+    .button-confirm:hover{
+      border: 0.4vh solid;
+      padding: 10px;
+      box-shadow: 4px 6px;
+      font-size: 1.7vw;
+    }
+
+    
+  #SlikaProizvoda img{
+    width: 10vw;
+    height: 10vh;
+ }
+
+ .button-dodaj{
+  position: relative;
+   bottom: 3vh;
+   right:36vw;
+}
+.form-control{
+  height: 7vh;
+  width: 30vw;
+}
+ 
+
+    

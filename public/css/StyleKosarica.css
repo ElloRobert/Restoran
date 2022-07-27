@@ -1,0 +1,106 @@
+body, html{
+    background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+    background-repeat: no-repeat;
+  
+   }
+   .naslov{
+    text-align: center;
+    margin: 0;
+    margin-bottom: -4.5vh; ;
+   }
+   .naslovTablice{
+     font-weight: bold;
+   }
+     
+     form label{
+        position:relative;
+         text-align: left;
+         font-size: 1.5vw;
+         text-align: left;
+         font-weight: bold;
+          
+         
+     }
+     form input{
+         text-align: left;
+         border: 1.7px solid black;
+         line-height: 1.5vw;
+         height: 2.5vw;
+         width: 100%;
+         font-size: 2.5vh;
+         margin-top: 0.5vh;
+         margin-bottom: 0.5vh;
+     }
+     #kolicina{
+        text-align: left;
+        border: 1.7px solid black;
+        line-height: 1.5vw;
+        height: 2vw;
+        width: 4vw;
+        font-size: 2.5vh;
+        margin-top: 0.5vh;
+        margin-bottom: 0.5vh;
+     }
+     .desno{
+        text-align: right;
+     }
+     .select{
+        text-align: left;
+         border: 1.7px solid black;
+         line-height: 1.5vw;
+         height: 2.5vw;
+         width: 100%vw;
+         font-size: 2.5vh;
+     }
+    
+     h1{
+         margin-top: 0.3vw;
+     }
+   
+  
+     .uredikosarica{
+      position: relative;
+      border: 2px solid black;
+      margin-left: 25vw;
+      margin-top: 5vh;
+      margin-bottom: 5vw;
+      padding-right:6vw;
+      padding-left: 6vw;
+      padding-bottom: 3vw;
+      padding-top: 3vw ;
+      width: fit-content;
+      block-size: fit-content;
+      line-height: 2vw;
+      border-radius: 5%;
+      text-align: left;
+      background-color: rgb(255, 255, 255);
+     }
+     .natrag{
+         position: relative;
+         left: -17vw;
+         top:-3.5vw;
+         height: 2vw;
+         width: 2vw;
+     }
+     .naslov{
+      text-align: center;
+     }
+     
+ 
+  
+    i{
+      color: black;
+    }
+  
+     i:hover{
+     
+      text-shadow: 8px 8px 8px #58585f;
+      transition: 0.1s;
+    
+    }
+    .slika{
+      border: none;
+    }
+    .selected{
+        color: aqua;
+    }
