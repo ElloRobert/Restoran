@@ -50,10 +50,21 @@ class NarudzbeController extends Controller
             $OdabraniProizvod = Proizvodi::find($sesijaId);
            //dd(Session::all());
             $sum= array_sum(session('narudzba')[$id]);
-           //dd(Session::all(),$sum);
-            //$Ukupna= $Ukupna + ($OdabraniProizvod->Cijena* $sum);
-             //dd(Session::all());
+
+            if(isset(Auth::user()->id)){
+                $korisnik= User::find(Auth::user()->id);
+                if($korisnik->vip =='VIP I'){
+                    $narudzba->Ukupno=0.8*($narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum)); 
+                  
+                }
+                elseif($korisnik->vip =='VIP II')
+                $narudzba->Ukupno=0.9*($narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum)); 
+              
+            }
+            else{
             $narudzba->Ukupno=$narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum);
+          
+            }
             $new = array_push($Proizvodi, $OdabraniProizvod->id);
             $new = array_push($Kolicine, $sesijaKolicina);
 
@@ -63,6 +74,20 @@ class NarudzbeController extends Controller
         if(isset(Auth::user()->id))
         {
         $narudzba->Narucitelj= Auth::user()->id;
+        if($narudzba->Ukupno>100)
+        {
+           $korisnik= User::find(Auth::user()->id);
+           $korisnik->bodovi+=10;
+           if($korisnik->bodovi>100){
+             $korisnik->vip='VIP I';
+           }
+           elseif ($korisnik->bodovi>50) {
+            $korisnik->vip='VIP II';
+           } 
+            
+           
+           $korisnik-> save();
+        }
         }
         
         $narudzba -> save();
@@ -73,7 +98,7 @@ class NarudzbeController extends Controller
         {
         $narudzbe->Proizvodi()->attach(['proizvodi_id'=> $Proizvodi[$i]],['proizvod_kolicina'=>$Kolicine[$i]]);
         }
-        Session::flush();
+        Session::forget('narudzba');
         return redirect("/");
        }}
         

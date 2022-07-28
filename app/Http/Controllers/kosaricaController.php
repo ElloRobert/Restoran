@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Proizvodi;
 use App\Models\Narudzbe;
 use Illuminate\Support\Facades\Session;
-//use Illuminate\Contracts\Session\Session;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -25,11 +25,11 @@ class kosaricaController extends Controller
         //Session::flush();
         //dd(Session::all());
         $UkupnaCijena=0;
+        
+       
         //Ako postoji bilo koja narudzba ispisi je 
         if(Session::has('narudzba')){
             $broj=count(session('narudzba'));
-            //dd($broj);
-            //Ispis svih narudzbi
              foreach (Session::get('narudzba') as $id => $kolicina )
                 {
                     //dd($id);
@@ -42,19 +42,33 @@ class kosaricaController extends Controller
                    $OdabraniProizvod = Proizvodi::find($sesijaId);    
                    $UkupnaCijena=$UkupnaCijena+($OdabraniProizvod->Cijena * $sesijaKolicina);
                 }
-                return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena);
-         }
+
+                if(isset(Auth::user()->id)){
+                    $korisnik= User::find(Auth::user()->id);
+                    return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena)->with('korisnik',$korisnik);
+                    }
+                if(empty(Auth::user()->id)){
+                    return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena);
+                    };
+             }
+          
          //Ako ne postoji narudzbaisipis bez podataka
          else{ 
             //dd("uslo");
             $broj=0;
             $UkupnaCijena=0;
-            return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena);
+            if(isset(Auth::user()->id)){
+                $korisnik= User::find(Auth::user()->id);
+                return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena)->with('korisnik',$korisnik);
+                }
+            else{
+                return view('kosarica')->with('broj',$broj)->with('UkupnaCijena',$UkupnaCijena);
+                }
         }
-}
+
 
     
-
+    }
     /**
      * Show the form for creating a new resource.
      *

@@ -69,27 +69,66 @@ $Ukupna=0;
                 {{$OdabraniProizvod->Cijena* $sum}}kn
             </div>
             <div class="col">
-                <a href='kosarica/obrisiProizvod/{{$id}}'" class="btn btn-danger">Ukloni</a>
+                <a href='kosarica/obrisiProizvod/{{$id}}' class="btn btn-danger">Ukloni</a>
                </div>
         </div>
         <hr>
         @endforeach
         @endif
         
-        <div class="row naslovTablice">
+        <div class="row ">
             <div class="col-10">
                 Ukupno:
             </div>
-            <div class="col-2 ">
+            <div class=" col-2">
              {{$Ukupna}} kn
             </div>
+            </div>
+            @if(isset($korisnik->vip))
+            @if($korisnik->vip=='VIP II')
+            <div class="row ">
+            <div class="col-10">
+                Popust:
+            </div>
+            <div class="col-2">
+                 10%
+            </div>
+            </div>
+            <div class="row ">
+            <div class="col-10">
+                Ukupno:
+            </div>
+            <div class="col-2">
+                
+             {{$Ukupna*0.9}} 
+            </div>
+            </div>
+            @elseif($korisnik->vip=='VIP I')
+            <div class="row ">
+            <div class="col-10">
+                Popust:
+            </div>
+            <div class="col-2">
+                 20%
+            </div>
+            </div>
+            <div class="row ">
+            <div class="col-10">
+                Ukupno:
+            </div>
+            <div class="col-2">
+             {{$Ukupna*0.8}} kn
+            </div>
+            </div>
+            @endif
+            @endif
             <br>
             <br>
             <div class="row">
-                <div class="col-10">
+                <div class="col-8">
                     <label for="nacin">Odaberi način plaćanja:</label><br>
                 </div>
-                    <div class="col-2 desno">
+                    <div class="col-4 desno">
                         <select name="nacin" id="nacin" class="select">
                             <option value="Pouzecem"  id="Pouzecem">Plati pouzećem</option>
                             <option value="Karticom" id="Karticom">Plati karticom</option>
@@ -142,6 +181,8 @@ $Ukupna=0;
       <br>
       <label for="mjesto">Mjesto:</label><br>
       <input type="text" name="mjesto" placeholder="Mjesto:" required><br>
+      <label for="mjesto">Email:</label><br>
+      <input type="email" name="email" placeholder="Email:" required><br>
       <label for="adresa">Adresa:</label><br>
       <input type="text" name="adresa" placeholder="Adresa:" required>
       <br>

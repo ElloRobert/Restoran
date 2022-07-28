@@ -50,7 +50,9 @@ class HomeController extends Controller
         $id = Auth::user()->id;
         $narudzbe = Narudzbe::all()->where('Narucitelj',$id);
         $upiti = Upiti::all()->where('Posiljatelj',$id);
-        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik);
+        $proizvodi=Proizvodi::all();
+        $NaruceniProizvodi= narudzbe_proizvodi::all();
+        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('proizvodi',$proizvodi);
       }
     
     }

@@ -189,7 +189,9 @@
                      <th>E-mail</th>
                      <th> Uloga</th>
                      <th>Uredi</th>
-                     <th>Obriši</th> 
+                     <th>Obriši</th>
+                     <th>Bodovi</th>
+                     <th>Vip</th>
                      </tr>
                    </thead>
                    <tbody>
@@ -200,6 +202,8 @@
                        <td>{{$korisnik -> getRoleNames()}}</td>
                        <td><a href='/home/EditKorisnikAdmin/{{$korisnik->id}}' class="btn btn-success" >UREDI</a></td>
                        <td><a href="#" class="btn btn-danger korisnik-delete" data-toggle="modal" data-target="#myModal" data-korisnik_id="{{$korisnik->id}}">OBRIŠI</a></td>
+                       <td>{{$korisnik->bodovi}}</td>
+                       <td>  {{$korisnik->vip}}</td>
                      </tr>
                      @endforeach
                   
