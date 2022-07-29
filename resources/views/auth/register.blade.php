@@ -2,7 +2,7 @@
 
 @section('content')
                 <div >
-                    <form method="POST" action="{{ route('register') }}" class="uredi">
+                    <form method="POST" action="{{ route('register') }}" class="uredi" >
                         @csrf
                         <h1>{{ __('Registriraj se:') }}</h1>
                         <div >
@@ -54,7 +54,8 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
+                        <div>
+                         
                         <div >
                             <div >
                                 <button type="submit"  class="btn btn-success">

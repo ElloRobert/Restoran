@@ -7,6 +7,8 @@ use App\Models\User;
 use App\Models\Narudzbe;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Js;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminController extends Controller
 {
@@ -36,6 +38,11 @@ class AdminController extends Controller
                 
           return 'Neispravan unos';}
         }
+    }
+
+    public function export() 
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
     /**

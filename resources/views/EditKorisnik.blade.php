@@ -12,12 +12,16 @@
 
 <body>
   
-    <form method="POST" action="/home/EditKorisnikStore" class="uredikosarica">
+    <form method="POST" action="/home/EditKorisnikStore" class="uredikosarica" enctype="multipart/form-data">
         @csrf
-      
-        <h1>{{ __('Uredi podatke:') }}</h1>
-        <a href="/home" class="natrag-edit" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
-        <div >
+        <div class="zaglavlje">
+         <img src="../storage/SlikaProfila/{{$KorisnikSlika}}" alt="{{$KorisnikSlika}} " class="UrediSlika">
+        <h1 class="naslov" >Uredi podatke</h1>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="sadrzaj">
             <label for="name" >{{ __('Ime:') }}</label>
             <div >
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{Auth::user()->name}}"  autocomplete="name" autofocus>
@@ -66,7 +70,12 @@
               {{$greska}}
             </div>
         </div>
-
+       
+        <div>
+        <label for="img">Odaberi fotografiju:</label>
+        </div>
+        <input class="slika" type="file" id="slika" name="slika" value="" accept="image/*">
+       </div>
         <div >
             <div >
                 <button type="submit"  class="btn btn-success">

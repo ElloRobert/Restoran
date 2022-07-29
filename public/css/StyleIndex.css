@@ -229,5 +229,10 @@
     position: relative;
     right: 28vw
   }
-
+  .KorisnikSlika{
+    vertical-align: middle;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+  }
 

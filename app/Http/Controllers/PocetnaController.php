@@ -7,7 +7,8 @@ use  App\Models\Proizvodi;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class PocetnaController extends Controller
 {
@@ -28,8 +29,14 @@ class PocetnaController extends Controller
         }
         $proizvod1 = DB::table('proizvodis')->where('id', $prvoJelo)->first();
         $proizvod2 = DB::table('proizvodis')->where('id',$drugoJelo)->first();
-        
-        return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2);
+        if(isset(Auth::user()->name)){
+        $id = Auth::user()->id;
+        $KorisnikSlika = User::find($id)->Slika;
+        return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2)->with('KorisnikSlika',$KorisnikSlika);
+        }
+        else{
+            return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2);
+        }
     }
 
 

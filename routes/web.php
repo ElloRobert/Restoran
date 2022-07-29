@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StranicaController;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +73,10 @@ Route::post('/home/UrediProizvod',[App\Http\Controllers\HomeController::class,'U
 Route::get('/home/EditKorisnik',[App\Http\Controllers\HomeController::class,'EditKorisnik']);
 Route::post('/home/EditKorisnikStore',[App\Http\Controllers\HomeController::class,'EditKorisnikStore']);
 Route::get('/home/EditKorisnikAdmin/{id}',[App\Http\Controllers\HomeController::class,'EditKorisnikAdmin']);
+Route::post('/home/EditKorisnikAdminStore',[App\Http\Controllers\HomeController::class,'EditKorisnikAdminStore']);
 Route::get('/home/obrisiKorisnika/{id}',[App\Http\Controllers\HomeController::class,'obrisiKorisnika']);
+
+Route::get('/download',[App\Http\Controllers\AdminController::class,'export'] );
 
 Route::get('/Dodaj', [App\Http\Controllers\DodajController::class, 'index']);
 Route::post('/Dodaj/store', [App\Http\Controllers\DodajController::class, 'store']);

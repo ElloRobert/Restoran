@@ -36,6 +36,13 @@ class HomeController extends Controller
       /*Provjera je li korisnik moze koristiti odredenu premisson*/
       $id = Auth::user()->id;
       $trenutniKorisnik = User::find($id);
+   
+      if($trenutniKorisnik->Slika==null){
+        $filename="Default.png";
+        $trenutniKorisnik->Slika= $filename;
+        $trenutniKorisnik->save();
+
+      }
       if($trenutniKorisnik->hasRole('Admin')){
         $korisnik=true;
         $korisnici= User::all();
@@ -177,10 +184,12 @@ class HomeController extends Controller
       public function EditKorisnik()
       {
         $id = Auth::user()->id;
+        $KorisnikSlika = User::find($id)->Slika;
+       // dd($Korisnik);
         $trenutniKorisnik = User::find($id);
         $Korisnik = User::all()->where('id',$id);
         $greska='';
-        return view('EditKorisnik')->with('korisnik',$Korisnik)->with('greska',$greska);;
+        return view('EditKorisnik')->with('korisnik',$Korisnik)->with('greska',$greska)->with('KorisnikSlika',$KorisnikSlika);
       }
       
       
@@ -197,22 +206,81 @@ class HomeController extends Controller
         if($Lozinka==$Potvrda)
         {
         $Korisnik->password=  Hash::make($Lozinka);
-        $Korisnik -> save();
+      
+        
+        ;
         }
         else{
              $greska='Lozinka nije valjana';
              return view('EditKorisnik')->with('greska',$greska);
 
         }
-
+       
+       if($request->file('slika')){
+       
+          $file= $request->file('slika');
+          $extension =$file->getClientOriginalExtension();
+          $filename =time().'.'.$extension;
+          Storage::putFileAs('public/SlikaProfila', $file, $filename);
+          $Korisnik->Slika= $filename;
+         
+      }
+      else{
+        $filename="Default.png";
+        $Korisnik->Slika= $filename;
+       
+      }
+      $Korisnik -> save();
         $proizvodi=Proizvodi::all();
         $narudzbe = Narudzbe::all();
         $upiti = Upiti::all();
         return redirect('home');
     }
+
+    public function EditKorisnikAdminStore(request $request)
+    {
+        $id=$request->input('id'); 
+        $Korisnik = User::find($id);
+        $Korisnik->name = $request->input('name');
+        $Korisnik->email = $request->input('email');
+        $Lozinka= $request->input('password');
+        $Potvrda = $request->input('password_confirmation');
+        if($Lozinka==$Potvrda)
+        {
+        $Korisnik->password=  Hash::make($Lozinka);
+        }
+        else{
+             $greska='Lozinka nije valjana';
+             return view('EditKorisnik')->with('greska',$greska);
+
+        }
+        /*
+       if($request->file('slika')){
+       
+          $file= $request->file('slika');
+          $extension =$file->getClientOriginalExtension();
+          $filename =time().'.'.$extension;
+          Storage::putFileAs('public/SlikaProfila', $file, $filename);
+          $Korisnik->Slika= $filename;
+         
+      }
+      else{
+        $filename="Default.png";
+        $Korisnik->Slika= $filename;
+       
+      }*/
+      $Korisnik -> save();
+        $proizvodi=Proizvodi::all();
+        $narudzbe = Narudzbe::all();
+        $upiti = Upiti::all();
+        return redirect('home');
+    }
+
+    //Dodaj u kontroler EditKorisnikAdminStore da nemas problem sa slikom
     public function EditKorisnikAdmin($id)
     {
       $Korisnik = User::find($id);
+      //dd($Korisnik->name);
       $greska='';
       return  view('EditKorisnikAdmin')->with('Korisnik',$Korisnik)->with('greska',$greska);
     }

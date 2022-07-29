@@ -22,6 +22,7 @@ use App\Http\Controllers\ProizvodiController;
         <a href="#section3">Kako do nas</a>
         <a href={{ route('login') }} class="admin">
               @if(isset(Auth::user()->name) )
+              <img src="../storage/SlikaProfila/{{$KorisnikSlika}}" alt="{{$KorisnikSlika}} " class="KorisnikSlika">
                {{Auth::user()->name}}
                @else 
                Admin

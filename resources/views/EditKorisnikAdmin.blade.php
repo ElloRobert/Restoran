@@ -12,15 +12,20 @@
 
 <body>
   
-    <form method="post" action="/home/EditKorisnikStore" class="uredi">
+    <form method="post" action="/home/EditKorisnikAdminStore" class="uredi">
         @csrf
-      
         <h1>{{ __('Uredi podatke:') }}</h1>
         <a href="/home" class="natrag-edit" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
+        <div>
+            <label for="id">ID:</label><br>
+            </div>
+            <div></div>
+            <input  type="text" name="id" readonly class="form-control input"  value="{{ $Korisnik->id}}">
+            <div>
         <div >
             <label for="name" >{{ __('Ime:') }}</label>
             <div >
-                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{$Korisnik-> name}}" required autocomplete="name" autofocus>
+                <input id="name" type="text" class="form-control input @error('name') is-invalid @enderror" name="name" value="{{$Korisnik->name}}" required autocomplete="name" autofocus>
 
                 @error('name')
                     <span class="invalid-feedback" role="alert">
@@ -34,7 +39,7 @@
             <label for="email" >{{ __('Email:') }}</label>
 
             <div >
-                <input id="email" type="email"  class="form-control @error('email') is-invalid @enderror" name="email" value="{{$Korisnik->email}}" required autocomplete="email">
+                <input  id="email" type="email"  class="form-control input @error('email') is-invalid @enderror" name="email" value="{{$Korisnik->email}}" required autocomplete="email">
 
                 @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -48,7 +53,7 @@
             <label for="password" >{{ __('Nova lozinka:') }}</label>
 
             <div >
-                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
+                <input   id="password" type="password" class="form-control input @error('password') is-invalid @enderror" name="password"  autocomplete="new-password">
 
                 @error('password')
                     <span class="invalid-feedback" role="alert">
@@ -69,6 +74,7 @@
 
         <div >
             <div >
+                <br>
                 <button type="submit"  class="btn btn-success">
                     {{ __('Spremi promjene') }}
                 </button>

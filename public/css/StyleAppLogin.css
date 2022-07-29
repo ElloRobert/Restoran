@@ -1,10 +1,8 @@
-html,body{
-    padding: 0;
-    margin: 0;
-    background-color:rgb(224, 224, 224);
-   }
-     
-     form label{
+body, html{
+  background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(173, 170, 170));
+ } 
+ 
+   form label{
         position:relative;
          text-align: left;
          font-size: 1.5vw;
@@ -26,7 +24,8 @@ html,body{
      .uredi{
          position: relative;
          border: 2px solid black;
-         margin-left: 30vw;
+         margin:auto;
+         margin-top: 5vh;
          padding-right:6vw;
          padding-left: 6vw;
          padding-bottom: 3vw;
@@ -54,7 +53,7 @@ html,body{
       text-align: left;
       margin-bottom: 10vw;
       margin-top: 10vw;
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(226, 208, 208);
   }
     
   
@@ -62,12 +61,13 @@ html,body{
      
      .odjava{
         position: relative;
-       left: 75vw;
-       top: 0vh
+        left: 70vw;
+        top: 0vh
 
      }
+
      .dropdown-menu{
-      margin:0;
+      margin:0vw;
       padding:0;
      }
 
@@ -77,6 +77,7 @@ html,body{
         right: 10vw;
         top: 2vh;
      }
+
      .natrag-edit{
       position:relative;
       right: 3vw;
@@ -84,32 +85,8 @@ html,body{
    }
 
    
-     .button-potvrdi{
-  
-      background-color: #0a670d;
-      border: none;
-       color: black;
-       padding: 5px 15px;
-       text-align: center;
-       text-decoration: none;
-       display: inline-block;
-       margin: 2px 2px;
-       margin-top: 0vh;
-       cursor: pointer;
-       font-size: 2vw;
-       font-weight: bold;
-       text-align: center;
-       height: 3.5vw;
-       width: 28vw;
-    
-    }
-     
-    .button-potvrdi:hover{
-      border: 0.4vh solid;
-      padding: 10px;
-      box-shadow: 4px 6px;
-      font-size: 1.7vw;
-    }
+ 
+ 
     i{
       color: black;
     }
@@ -183,40 +160,8 @@ html,body{
         
         }
         
-      .button-obrisi{
-        background-color: #e30000;
-        width: 5vw;
-        height: 3vh;
-        border: none;
-         color: black;
-         padding: 5px 15px;
-         padding-top: 1.3vh;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 16px;
-         margin: 2px 2px;
-         cursor: pointer;
-         border-radius:5% ;
-         font-weight: bold;
-      }
-      .button-potvrdi{
-        background-color: #029109;
-        width: 5vw;
-        height: 3vh;
-        border: none;
-         color: black;
-         padding: 5px 15px;
-         padding-top: 1.3vh;
-         text-align: center;
-         text-decoration: none;
-         display: inline-block;
-         font-size: 16px;
-         margin: 2px 2px;
-         cursor: pointer;
-         border-radius:5% ;
-         font-weight: bold;
-      }
+   
+   
 
       form label{
         position:relative;
@@ -226,20 +171,21 @@ html,body{
          font-weight: bold;
             
      }
+
      form input{
-         text-align: left;
-         font-size: 3vh;
-         border: 1.7px solid black;
-         line-height: 2vw;
-         height: 3vw;
-         width: 35vw;
-         margin-top: 1.5vh;
-         margin-bottom: 1.5vh;
-     }
+      text-align: left;
+      border: 1.7px solid black;
+      line-height: 1.5vw;
+      height: 2.5vw;
+      width: 100%;
+      font-size: 2.5vh;
+      margin-top: 0.5vh;
+      margin-bottom: 0.5vh;
+  }
       .form-check-input{
-         position: relative;
-         left: 3vw;
-         top: 0.5vh;
+       position: relative;
+       left: 3vw;
+        top: 0.5vh;
         border: 1.7px solid black;
         line-height: 2vw;
         height: 1.2vw;
@@ -293,10 +239,20 @@ html,body{
    bottom: 3vh;
    right:36vw;
 }
+.button-excel{
+  position: relative;
+  background-color: rgb(255, 255, 255);
+   bottom: 5vh;
+   left:38vw;
+}
+
 .form-control{
   height: 7vh;
   width: 30vw;
 }
  
+.slika{
+  border: none;
+}
 
     

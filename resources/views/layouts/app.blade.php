@@ -25,7 +25,6 @@
 
     <!-- Styles -->
     @yield('css')
-   <link href="{{ asset('css/StyleAppLogin.css') }}" rel="stylesheet">
    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
    <link href="{{ asset('css/StyleAppLogin.css') }}" rel="stylesheet">
     
@@ -37,7 +36,7 @@
         <nav class="navbar">
             <div class="container">
                 <div >
-                    <a href="/" class="natrag" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
+                    <!--<a href="/" class="natrag" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>-->
                         <!-- Authentication Links -->
                         @guest
                         
@@ -56,7 +55,7 @@
                         @else
                         
                         <div class="dropdown odjava">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 {{ Auth::user()->name }}
                             </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

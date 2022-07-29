@@ -182,6 +182,7 @@
 
           <div class="korisnik">
               @if($korisnik==true)
+              <a style="font-size:16px" href='/download' class='btn  btn-secondary btn-lg button-excel'><i class="fa fa-file-excel-o"></i></a>
                      <table class="table_id">
                        <thead>
                      <tr >
@@ -199,7 +200,7 @@
                      <tr> 
                        <td>{{$korisnik-> name}}</td>
                        <td>  {{$korisnik-> email}}</td>
-                       <td>{{$korisnik -> getRoleNames()}}</td>
+                       <td>{{$korisnik -> getRoleNames()[0]}}</td>
                        <td><a href='/home/EditKorisnikAdmin/{{$korisnik->id}}' class="btn btn-success" >UREDI</a></td>
                        <td><a href="#" class="btn btn-danger korisnik-delete" data-toggle="modal" data-target="#myModal" data-korisnik_id="{{$korisnik->id}}">OBRIŠI</a></td>
                        <td>{{$korisnik->bodovi}}</td>
