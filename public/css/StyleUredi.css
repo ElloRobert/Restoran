@@ -1,7 +1,6 @@
 body, html{
-    background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(173, 170, 170));
-    background-repeat: no-repeat;
-  
+    background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(196, 192, 192));
+ 
    }
    .naslov{
     text-align: center;
@@ -19,17 +18,16 @@ body, html{
          
          
      }
-  
      form input{
-      text-align: left;
-      border: 1.7px solid black;
-      line-height: 1.5vw;
-      height: 3vw;
-      width: 35vw;
-      font-size: 2.5vh;
-      margin-top: 0.5vh;
-      margin-bottom: 0.5vh;
-  }
+         text-align: left;
+         border: 1.7px solid black;
+         line-height: 1.5vw;
+         height: 3vw;
+         width: 35vw;
+         font-size: 2.5vh;
+         margin-top: 0.5vh;
+         margin-bottom: 0.5vh;
+     }
      .select{
         text-align: left;
          border: 1.7px solid black;
@@ -40,12 +38,24 @@ body, html{
      }
     
      h1{
-         text-align: center;
          margin-top: 0.3vw;
      }
-
-    
-  
+     .uredi{
+         position: relative;
+         border: 2px solid black;
+         margin: auto;
+         padding-right:5vw;
+         padding-left: 6vw;
+         padding-bottom: 5vh;
+         padding-top: 5vh ;
+         width: fit-content;
+         block-size: fit-content;
+         line-height: 2vw;
+         border-radius: 5%;
+         text-align: left;
+         margin-top: 1vw;
+         background-color: rgb(255, 255, 255);
+     }
   
      .uredikosarica{
       position: relative;
@@ -53,10 +63,10 @@ body, html{
       margin-left: 25vw;
       padding-right:6vw;
       padding-left: 6vw;
-      padding-bottom: 3vw;
+      padding-bottom: 8.5vw;
       padding-top: 3vw ;
-      width: fit-content;
-      block-size: fit-content;
+      height: 85vh;
+      width: 50vw;
       line-height: 2vw;
       border-radius: 5%;
       text-align: left;
@@ -66,7 +76,7 @@ body, html{
      }
      .natrag{
          position: relative;
-         left: 0vw;
+         left: -17vw;
          top:-3.5vw;
          height: 2vw;
          width: 2vw;
@@ -102,8 +112,6 @@ body, html{
     }
   
     i{
-      position: relative;
-      bottom: 6vh;
       color: black;
     }
   
@@ -116,42 +124,25 @@ body, html{
     .slika{
       border: none;
     }
-    .naslov{
-      position: absolute;
-      left: 15vw;
-       top: 10vh;
-    }
-
-    .UrediSlika{
-      position: absolute;
-      left: 5vw;
-      width: 7vw;
-      height: 7vw;
-      border-radius: 50%;
-    }
-    .sadrzaj{
-      margin-top: 7vh;
-    }
-
     nav{
-      position: absolute;
-      top:0vw;
-      left: 0vw;
-      right: 0vw;
-      bottom: 0vw;
-      text-align: center;
-      height: 6.5vh;
-      width: 100vw;
-      background-color:rgb(5, 5, 5);
-      opacity: 80%;
-      padding-top: 1.5vh;
-    }
+        position: absolute;
+        top:0vw;
+        left: 0vw;
+        right: 0vw;
+        bottom: 0vw;
+        text-align: center;
+        height: 6.5vh;
+        width: 100vw;
+        background-color:rgb(5, 5, 5);
+        opacity: 80%;
+        padding-top: 1.5vh;
+      }
 
-  .natrag i{
-      position:absolute;
-      left: -10vw;
-      top: 6vh;
-      color: white;
-      font-size: 2.5vh ;
-     }
+    .natrag i{
+        position:absolute;
+        left: 5vw;
+        top: 6vh;
+        color: white;
+        font-size: 2.5vh ;
+       }
    

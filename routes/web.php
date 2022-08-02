@@ -4,6 +4,7 @@ use App\Http\Controllers\IspisProizvodaController;
 use App\Http\Controllers\ProizvodiController;
 use App\Http\Controllers\UpitiController;
 use App\Http\Controllers\NarudzbeController;
+use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StranicaController;
@@ -55,9 +56,12 @@ Route :: resource('/Narudzbe','App\Http\Controllers\NarudzbeController');
 
 
 
-Auth::routes();
+Auth::routes(['verify' => true]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
+//Route::get('/email/verify', [App\Http\Controllers\Auth\VerificationController::class,'__construc']);
+
 Route::get('/home/edit/{id}',[App\Http\Controllers\HomeController::class, 'edit']);
 Route::get('/home/store',[App\Http\Controllers\HomeController::class, 'store']);
 Route::get('/home/obrisi/{id}',[App\Http\Controllers\HomeController::class,'obrisi']);
@@ -75,6 +79,14 @@ Route::post('/home/EditKorisnikStore',[App\Http\Controllers\HomeController::clas
 Route::get('/home/EditKorisnikAdmin/{id}',[App\Http\Controllers\HomeController::class,'EditKorisnikAdmin']);
 Route::post('/home/EditKorisnikAdminStore',[App\Http\Controllers\HomeController::class,'EditKorisnikAdminStore']);
 Route::get('/home/obrisiKorisnika/{id}',[App\Http\Controllers\HomeController::class,'obrisiKorisnika']);
+Route::get('/home/UrediNarudzbu/{id}',[App\Http\Controllers\HomeController::class,'UrediNarudzbu']);
+Route::post('/home/UrediNarudzbuStore',[App\Http\Controllers\HomeController::class,'UrediNarudzbuStore']);
+Route::get('/home/Status/{id}',[App\Http\Controllers\HomeController::class,'Status']);
+Route::get('/home/StatusOtkazi/{id}',[App\Http\Controllers\HomeController::class,'StatusOtkazi']);
+
+Route::get('/home/NarudzbaPDF/{id}', [App\Http\Controllers\HomeController::class, 'createPDF']);
+
+
 
 Route::get('/download',[App\Http\Controllers\AdminController::class,'export'] );
 

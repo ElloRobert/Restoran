@@ -13,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\File;
+use Barryvdh\DomPDF\PDF;
+
 
 class HomeController extends Controller
 {
@@ -23,7 +26,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        $this->middleware(['auth']);
     }
 
     /**
@@ -50,7 +53,8 @@ class HomeController extends Controller
         $narudzbe = Narudzbe::all();
         $upiti = Upiti::all();
         $NaruceniProizvodi= narudzbe_proizvodi::all();
-        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('proizvodi',$proizvodi)->with('korisnici',$korisnici)->with('NaruceniProizvodi',$NaruceniProizvodi);
+        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('proizvodi',$proizvodi)
+        ->with('korisnici',$korisnici)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('trenutniKorisnik',$trenutniKorisnik);
       }
       else{
         $korisnik=false;
@@ -59,7 +63,7 @@ class HomeController extends Controller
         $upiti = Upiti::all()->where('Posiljatelj',$id);
         $proizvodi=Proizvodi::all();
         $NaruceniProizvodi= narudzbe_proizvodi::all();
-        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('proizvodi',$proizvodi);
+        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('proizvodi',$proizvodi)->with('trenutniKorisnik',$trenutniKorisnik);
       }
     
     }
@@ -91,6 +95,7 @@ class HomeController extends Controller
     }
     public function obrisi($id)
     {
+         
         $narudzba = Narudzbe::find($id);
         $narudzba->delete();
         return redirect('home');
@@ -254,21 +259,7 @@ class HomeController extends Controller
              return view('EditKorisnik')->with('greska',$greska);
 
         }
-        /*
-       if($request->file('slika')){
-       
-          $file= $request->file('slika');
-          $extension =$file->getClientOriginalExtension();
-          $filename =time().'.'.$extension;
-          Storage::putFileAs('public/SlikaProfila', $file, $filename);
-          $Korisnik->Slika= $filename;
-         
-      }
-      else{
-        $filename="Default.png";
-        $Korisnik->Slika= $filename;
-       
-      }*/
+  
       $Korisnik -> save();
         $proizvodi=Proizvodi::all();
         $narudzbe = Narudzbe::all();
@@ -291,5 +282,67 @@ class HomeController extends Controller
           $Korisnik->delete();
           return redirect('home');
       
+    }
+    public function UrediNarudzbu($id)
+    {
+      $narudzbe = Proizvodi::all();
+      $narudzba = DB::table('narudzbes')->find($id);
+      if(isset($narudzba->Narucitelj)){
+        $korisnici=User::all();
+        $idKorisnika=$narudzba->Narucitelj;
+        $korisnica= $korisnici->find($idKorisnika);
+         echo  $korisnica->name;
+         return  view('UrediNarudzbu')->with('narudzba',$narudzba)->with('korisnica',$korisnica);
+      }
+      return  view('UrediNarudzbu')->with('narudzba',$narudzba);
+    }
+
+    public function UrediNarudzbuStore(request $request)
+    {
+        $id=$request->input('id'); 
+        $narudzba = Narudzbe::all()->find($id);
+        $narudzba->Status = $request->input('Status');
+        $narudzba->save();
+        return redirect('home');
+    }
+
+    public function Status($id){
+      $narudzbe = Proizvodi::all();
+      $narudzba = Narudzbe::all()->find($id);
+      if($narudzba->Status=="Primljeno"){
+        $narudzba->Status = "Poslano";
+      }
+      $narudzba->save();
+      return redirect('home');
+    }
+
+    public function StatusOtkazi($id){
+      $narudzbe = Proizvodi::all();
+      $narudzba = Narudzbe::all()->find($id);
+      $narudzba->Status = "Otkazano";
+      $narudzba->save();
+      return redirect('home');
+    }
+
+
+  
+    public function createPDF($id) {
+     
+      
+
+      $narudzbe = Narudzbe::all()->where('id',$id);
+      $NaruceniProizvodi= narudzbe_proizvodi::all();
+      $proizvodi=Proizvodi::all();
+      $pdf = app('dompdf.wrapper');
+      $pdf->loadView('Narudzbe', compact('narudzbe','NaruceniProizvodi', 'proizvodi'));
+      return $pdf->download('narudzba.pdf');
+
+    
+
+      //return view('Narudzbe',compact('narudzbe','NaruceniProizvodi','proizvodi'));
+      
+    
+
+    
     }
  }

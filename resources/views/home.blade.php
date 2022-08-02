@@ -4,10 +4,12 @@
 @endsection
 @section('content')
 
-        
        <div class="card text-center">
               <div class="card-header">
                 <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a class="nav-link" id="PregledNarudzbi">Pregled narudzbi</a>
+                  </li>
                   <li class="nav-item">
                     <a class="nav-link" id="Narudzbe">Narudzbe</a>
                   </li>
@@ -94,7 +96,7 @@
                        <td> {{$narudzba->created_at}}</td>
                        @if($korisnik==true)
                        <td><a href='/home/edit/{{$narudzba->id}}'   class="btn btn-success" >POSLANO</a></td>
-                       <td><a href="#" class="btn btn-danger narudzba-delete" data-toggle="modal" data-target="#myModal" data-narudzba_id="{{$narudzba->id}}">OBRIŠI</a></td>
+                       <td><button class="btn btn-danger narudzba-delete" data-toggle="modal" data-target="#myModal" data-narudzba_id="{{$narudzba->id}}">OBRIŠI</button></td>
                        @endif
                       <td>  {{$narudzba->updated_at }} </td> 
                       </tr>
@@ -109,7 +111,7 @@
               </div>
     
           <div class=" upiti">
-              <table  class="table_id" >
+              <table  class="table_id">
                     <thead>
                       <th>ID</th>
                       <th>Ime</th>
@@ -182,19 +184,19 @@
 
           <div class="korisnik">
               @if($korisnik==true)
-              <a style="font-size:16px" href='/download' class='btn  btn-secondary btn-lg button-excel'><i class="fa fa-file-excel-o"></i></a>
-                     <table class="table_id">
-                       <thead>
-                     <tr >
-                     <th>Ime</th>
-                     <th>E-mail</th>
-                     <th> Uloga</th>
-                     <th>Uredi</th>
-                     <th>Obriši</th>
-                     <th>Bodovi</th>
-                     <th>Vip</th>
-                     </tr>
-                   </thead>
+              <a style="font-size:16px" href='/download' class='btn  btn-secondary btn-lg button-excel'><i class="fa-solid fa-file-excel"></i></a>
+              <table class="table_id">
+                <thead>
+                <tr >
+                <th>Ime</th>
+                <th>E-mail</th>
+                <th> Uloga</th>
+                <th>Uredi</th>
+                <th>Obriši</th>
+                <th>Bodovi</th>
+                <th>Vip</th>
+                </tr>
+                </thead>
                    <tbody>
                      @foreach ($korisnici as $korisnik)
                      <tr> 
@@ -211,7 +213,53 @@
                    </tbody>
                 @endif
                      </table>
-                   </div>       
+                   </div> 
+          <div class="PregledNarudzbi">
+            <table  class="table_id" >
+              <thead>
+                  <tr >
+                  <th>ID</th>
+                  <th>Ime</th>
+                  <th>Cijena</th>
+                  <th>Vrijeme Narudžbe</th>
+                  <th>Status</th>
+                  <th>Akcije</th>
+                  </tr>
+              </thead>
+  
+              <tbody>   
+               @if(isset($narudzbe))
+                  @foreach ($narudzbe as $narudzba)
+                    <tr> 
+                    <td>  {{$narudzba->id}}    </td>
+                    <td>
+                      <?php
+                        if(isset($narudzba->Narucitelj)){
+                          $idKorisnika=$narudzba->Narucitelj;
+                          $korisnica= $korisnici->find($idKorisnika);
+                           echo  $korisnica->name;
+                        }
+                      ?>
+                    </td>
+                    <td> {{$narudzba->Ukupno}} kn  </td>
+                    <td> {{$narudzba->created_at}}</td>
+                    <td> {{$narudzba->Status}} </td>
+                    <td class="gumbi">
+                    <a href="/home/Status/{{$narudzba->id}}" class="zelena"><i class="fa-solid fa-check"></i></a>
+                    <a href='/home/StatusOtkazi/{{$narudzba->id}}' class="crvena"><i class="fa-solid fa-xmark"></i></a>
+                    <a href='/home/UrediNarudzbu/{{$narudzba->id}}'><i class='fas fa-pencil-alt'> </i></a>
+                    <a href="/home/NarudzbaPDF/{{$narudzba->id}}"><i class="fa-solid fa-print"></i></a>
+                    <button class='fas narudzba-delete ' data-toggle="modal" data-target="#myModal" data-narudzba_id="{{$narudzba->id}}"><i class='fas '>&#xf2ed;</i></button>
+                    </td>
+                  
+                  @endforeach
+                  @else 
+                  Nema raspoloživih narudžbi
+                  @endif
+                </tbody>    
+              </table>      
+          </div>
+            </div>      
             
    </div>       
             
@@ -226,7 +274,7 @@
          </button>
        </div>
        <div class="modal-body">
-           Jeste li sigurni da želite obrisati Ovo?
+           Jeste li sigurni da želite obrisati?
        </div>
        <div class="modal-footer">
          <button type="button" class="btn btn-danger" data-dismiss="modal">Ne</button>
@@ -242,31 +290,50 @@
 <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script>
   $(document).ready( function () {
+
+
   //Dodavanje plug ina tablica u dokument
       $('.table_id').DataTable();
 
+       
+$('.table_id').on( 'length.dt', function ( e, settings, len ) {
+    console.log( 'alert: '+len );
+} );
   //Brisanje proizvoda
 
-      $('.proizvod-delete').on('click', function(){
+  $('.table_id').on('click', '.proizvod-delete', function()
+      {
         let proizvod_id = $(this).data('proizvod_id');
+        
         $('#myModal .delete-route').attr('href', '/home/obrisiProizvod/' + proizvod_id);
         $('#myModal').modal('show');
       });
 //Brisanje upita
     $('.upit-delete').on('click', function(){
         let upit_id = $(this).data('upit_id');
-        alert(upit_id)
-        $('#myModal .delete-route').attr('href', '/home/obrisiUpit/' + upit_id);
+        alert(upit_id);
+        $('#myModal .delete-route').attr('href', '/home/obrisiUpit/'+upit_id);
         $('#myModal').modal('show');
       });
+
+
   //Brisanje narudzbi
-     $('.narudzba-delete').on('click', function(){
+    $('.table_id').on('click', '.narudzba-delete', function(){
         let narudzba_id = $(this).data('narudzba_id');
-        alert(narudzba_id);
-        $('#myModal .delete-route').attr('href', '/home/obrisi/' + narudzba_id);
+        alert(typeof narudzba_id + ' : ' + narudzba_id);
+        console.log('Klik:' + this);
+        $('#myModal .delete-route').attr('href', '/home/obrisi/'+narudzba_id);
         $('#myModal').modal('show');
        });
-   
+       $('.table_id.dataTable').bind('page', function () {
+          // Call same code as for ready here
+          $('.narudzba-delete').on('click', function(){
+          let narudzba_id = $(this).data('narudzba_id');
+          alert('Bind' + typeof narudzba_id + ' : ' + narudzba_id);
+
+          });
+     
+      });
   //Brisanje korisnika
       $('.korisnik-delete').on('click', function(){
 
@@ -275,7 +342,7 @@
         let korisnik_id = $(this).data('korisnik_id');
 
         //Dodavanje linka u element a kako bi otisao u rutu        
-        $('#myModal .delete-route').attr('href', '/home/obrisiKorisnika/' + korisnik_id);
+        $('#myModal .delete-route').attr('href', '/home/obrisiKorisnika/'+korisnik_id);
         //Pozivanje modala 
         $('#myModal').modal('show');
 
@@ -285,53 +352,80 @@
         });
 
   //Prikaz narudzbe
-   $("#Narudzbe").addClass( "active");
+   $("#PregledNarudzbi").addClass( "active");
+   $(".PregledNarudzbi").show();
+   $("#Narudzbe").hide();
    $(".upiti").hide();
    $(".proizvodi").hide();
    $(".korisnik").hide();
+   $(".narudzbe").hide();
+ 
 
   $("#Narudzbe").click(function(){
     $("#Narudzbe").addClass( "active");
     $("#Korisnici").removeClass( "active");
     $("#Upiti").removeClass( "active");
+    $("#PregledNarudzbi").removeClass( "active");
     $("#Proizvodi").removeClass( "active");
     $(".narudzbe").show();
     $(".upiti").hide();
     $(".proizvodi").hide();
     $(".korisnik").hide();
+    $(".PregledNarudzbi").hide();
     });
   $("#Upiti").click(function(){
     $("#Upiti").addClass( "active");
     $("#Korisnici").removeClass( "active");
+    $("#PregledNarudzbi").removeClass( "active");
     $("#Proizvodi").removeClass( "active");
     $("#Narudzbe").removeClass( "active");
     $(".upiti").show();
     $(" .narudzbe").hide();
     $(".proizvodi").hide();
     $(".korisnik").hide();
+    $(".PregledNarudzbi").hide();
     });
   $("#Korisnici").click(function(){
     $("#Korisnici").addClass( "active");
     $("#Proizvodi").removeClass( "active");
+    $("#PregledNarudzbi").removeClass( "active");
     $("#Upiti").removeClass( "active");
     $("#Narudzbe").removeClass( "active");
     $(".korisnik").show();
     $(".proizvodi").hide();
     $(".upiti").hide();
     $(" .narudzbe").hide();
+    $(".PregledNarudzbi").hide();
   });
+  $("#PregledNarudzbi").click(function(){
+    $("#PregledNarudzbi").addClass( "active");
+    $("#Korisnici").removeClass( "active");
+    $("#Proizvodi").removeClass( "active");
+    $("#Upiti").removeClass( "active");
+    $("#Narudzbe").removeClass( "active");
+    $(".PregledNarudzbi").show();
+    $(".korisnik").hide();
+    $(".proizvodi").hide();
+    $(".upiti").hide();
+    $(" .narudzbe").hide();
+  });
+
 
   $("#Proizvodi").click(function(){
     $("#Proizvodi").addClass( "active");
     $("#Korisnici").removeClass( "active");
+    $("#PregledNarudzbi").removeClass( "active");
     $("#Upiti").removeClass( "active");
     $("#Narudzbe").removeClass( "active");
     $(".proizvodi").show();
     $(".upiti").hide();
     $(" .narudzbe").hide();
     $(".korisnik").hide();
+    $(".PregledNarudzbi").hide();
   });
    
 });
+
+
 </script>
 @endpush

@@ -12,37 +12,31 @@ use App\Http\Controllers\NaruciController;
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
   <body>
-   
     <nav class="navbar">
       <div class="container">
           <div >
-
                   <div id="main-menu">
-                  
                      <a href="/home" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
                   </div>
                    </div>
                   </div>
               </nav>
 
-<form action="/home/UrediProizvod" method="post" class="uredi" enctype="multipart/form-data" >
+<form action="/home/UrediNarudzbuStore" method="post" class="uredi" enctype="multipart/form-data" >
   @csrf
      <div class="naslov">
-     <h1 >Uredi proizvod:</h1>
+     <h1 >Uredi narudzbu:</h1>
       </div>
       <br>
       <br>
       <label for="id">ID:</label><br>
-      <input type="text" class=" input" name="id" readonly  value="{{ $proizvod-> id}}"><br>
-      <label for="ime"> Naziv proizvoda:</label><br>
-      <input type="text" class="form-control" name="ime"  value="{{ $proizvod-> NazivJela}}">
-      <label for="Cijena">Cijena proizvoda:</label><br>
-      <input type="text" class="form-control input" name="cijena"  value="{{ $proizvod-> Cijena}}">
-      <label for="opis"> Opis:</label><br>
-      <input type="text" class="form-control input" name="opis" id="opis" value="{{$proizvod-> Opis}}">
-      <label for="img">Odaberi drugu fotografiju:</label><br>
-      <input class="slika" class="form-control input" type="file" id="slika" name="slika" accept="image/*">
-    
+      <input type="text" class=" input" name="id" readonly  value="{{$narudzba->id}}"><br>
+      <label for="ime"> Narucitelj:</label><br>
+      <input type="text" class="form-control" name="ime" readonly   value="{{$korisnica->name}}">
+      <label for="Cijena">Ukupna cijena:</label><br>
+      <input type="text" class="form-control input" name="cijena" readonly   value="{{$narudzba->Ukupno}}">
+      <label for="Status"> Status:</label><br>
+      <input type="text" class="form-control input" name="Status" value="{{$narudzba->Status}}" id="Status">
       <br>
       <input type="submit" name="potvrdi" value="Potvrdi" class="btn btn-success">
 </form>   

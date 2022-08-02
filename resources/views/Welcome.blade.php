@@ -16,7 +16,7 @@ use App\Http\Controllers\ProizvodiController;
 
    <div id="main-menu">
       <nav>
-         <a href="kosarica" id="kosarica"><i class="fa fa-cart-arrow-down" style="font-size:2.5vh"></i></a>
+        <a href="kosarica" id="kosarica"><i class="fa fa-cart-arrow-down" style="font-size:2.5vh"></i></a>
         <a href="#section1" class="active" id="prviLink">Početna</a>
         <a href="#section2">Ponuda dana </a>
         <a href="#section3">Kako do nas</a>
@@ -27,13 +27,7 @@ use App\Http\Controllers\ProizvodiController;
                @else 
                Admin
                @endif
-              </a>
-          
-      
-        
-        
-    
-       
+              </a>    
   </div>
 
         

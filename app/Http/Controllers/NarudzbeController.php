@@ -39,7 +39,9 @@ class NarudzbeController extends Controller
     public function store(Request $request)
     { 
         $Ukupna=0;
+        
         $narudzba = new Narudzbe;
+        $narudzba->Ukupno=0;
         $Proizvodi=[];
         $Kolicine=[];
         $NarudzbeId=[];
@@ -59,16 +61,18 @@ class NarudzbeController extends Controller
                 }
                 elseif($korisnik->vip =='VIP II')
                 $narudzba->Ukupno=0.9*($narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum)); 
-              
-            }
+                 
+                else{
+                $narudzba->Ukupno=$narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum);
+            }}
             else{
-            $narudzba->Ukupno=$narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum);
-          
+                $narudzba->Ukupno=$narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum);
             }
             $new = array_push($Proizvodi, $OdabraniProizvod->id);
             $new = array_push($Kolicine, $sesijaKolicina);
 
         }
+        $narudzba->Status ="Primljeno";
         $narudzba->Mjesto= $request->input('mjesto');
         $narudzba->Adresa= $request->input('adresa');  
         if(isset(Auth::user()->id))

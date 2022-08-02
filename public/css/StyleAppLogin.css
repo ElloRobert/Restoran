@@ -14,6 +14,7 @@ body, html{
      }
   .card{
     margin:auto;
+    margin-top: 7vh;
     width: 90vw;
   }
     
@@ -59,24 +60,39 @@ body, html{
   
 
      
-     .odjava{
-        position: relative;
-        left: 70vw;
-        top: 0vh
-
-     }
+     
 
      .dropdown-menu{
-      margin:0vw;
-      padding:0;
+    
      }
 
-     .natrag{
-
-        position:relative;
-        right: 10vw;
-        top: 2vh;
+     .natrag i{
+      position:absolute;
+      left: 3vw;
+      top: 2vh;
+      color: white;
+      font-size: 2.5vh ;
      }
+     .odjava{
+      position:absolute;
+      right: 5vw;
+      top: 2vh;
+      color: white;
+
+   }
+   .odjava :hover{
+    /*border-right: 0.2vw solid white;*/
+    color: white;
+    border-bottom: 0.2vw solid white;
+    text-transform: uppercase;
+  }
+ 
+  .natrag :hover{
+    /*border-right: 0.2vw solid white;*/
+    color: white;
+    border-bottom: 0.2vw solid white;
+    text-transform: uppercase;
+  }
 
      .natrag-edit{
       position:relative;
@@ -86,14 +102,14 @@ body, html{
 
    
  
- 
-    i{
-      color: black;
-    }
+ i{
+  color: black;
+  font-size: 2vh;
+ }
   
      i:hover{
      
-      text-shadow: 8px 8px 8px #58585f;
+      text-shadow: 8px 8px 8px #cccccf;
       transition: 0.1s;
     
     }
@@ -141,6 +157,7 @@ body, html{
         margin-top: 2vw;
      }
 
+
      .table_id th{
       background-color: rgb(179, 176, 183);
       color: black;
@@ -159,6 +176,9 @@ body, html{
         text-align: center;
         
         }
+        table.dataTable thead th, table.dataTable thead td, table.dataTable tfoot th, table.dataTable tfoot td {
+          text-align: center;
+      }
         
    
    
@@ -199,36 +219,7 @@ body, html{
      h1{
          margin-top: 0.1vw;
      }
-     
- 
-     .button-confirm{
-  
-      background-color: #0a670d;
-      border: none;
-       color: black;
-       padding: 5px 15px;
-       text-align: center;
-       text-decoration: none;
-       display: inline-block;
-       margin: 2px 2px;
-       margin-top: 1.5vh;
-       cursor: pointer;
-       font-size: 2vw;
-       font-weight: bold;
-       text-align: center;
-       height: 3vw;
-       width: 28vw;
-    
-    }
-     
-    .button-confirm:hover{
-      border: 0.4vh solid;
-      padding: 10px;
-      box-shadow: 4px 6px;
-      font-size: 1.7vw;
-    }
-
-    
+   
   #SlikaProizvoda img{
     width: 10vw;
     height: 10vh;
@@ -254,5 +245,71 @@ body, html{
 .slika{
   border: none;
 }
+.PregledNarudzbi{
+  width: 90%;
+   
+        margin: auto;
+      margin-top: 3vw;
+      margin-bottom: 5vh;
+}
+.PregledNarudzbi th{
+  text-align: center;
+}  
 
-    
+
+
+.gumbi button{
+  font-size: 2vh;
+  margin-left: 0.5vw;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 30%;
+}
+.gumbi a{
+  font-size: 2vh;
+  margin-left: 0.5vw;
+  width: 4vh;
+  height: 4vh;
+  background-color: buttonface;
+  padding: 1px 6px;
+  border: 0.3vh solid black;
+  border-radius: 30%;
+}
+
+nav{
+  position: absolute;
+  top:0vw;
+  left: 0vw;
+  right: 0vw;
+  bottom: 0vw;
+  text-align: center;
+  height: 6.5vh;
+  width: 100vw;
+  background-color:rgb(5, 5, 5);
+  opacity: 80%;
+  padding-top: 1.5vh;
+}
+
+.admin{
+  position: relative;
+  left: 25vw;
+}
+#kosarica{
+  position: relative;
+  right: 28vw;
+  color:white;
+}
+.KorisnikSlika{
+  vertical-align: middle;
+  width: 4vh;
+  height: 4vh;
+  border-radius: 50%;
+}
+
+ .gumbi .crvena{
+  background-color: red;
+}
+
+.gumbi .zelena{
+  background-color: green;
+}

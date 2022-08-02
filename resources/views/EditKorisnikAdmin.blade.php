@@ -5,22 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
     <title>Document</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/StyleAppLogin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/StyleUredi.css') }}" rel="stylesheet">
 </head>
 
 <body>
+    <nav class="navbar">
+            <div class="container">
+                <div >
+
+                        <div id="main-menu">
+                        
+                           <a href="/home" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
+                        </div>
+                      
+                          
+                                  </div>
+            </div>
+                   
+                    </nav>
   
     <form method="post" action="/home/EditKorisnikAdminStore" class="uredi">
         @csrf
         <h1>{{ __('Uredi podatke:') }}</h1>
-        <a href="/home" class="natrag-edit" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
+        <br>
         <div>
             <label for="id">ID:</label><br>
             </div>
             <div></div>
-            <input  type="text" name="id" readonly class="form-control input"  value="{{ $Korisnik->id}}">
+            <input  type="text" name="id" readonly class=" input"  value="{{ $Korisnik->id}}">
             <div>
         <div >
             <label for="name" >{{ __('Ime:') }}</label>
