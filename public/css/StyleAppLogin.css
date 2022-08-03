@@ -15,8 +15,17 @@ body, html{
   .card{
     margin:auto;
     margin-top: 7vh;
+    background-color: rgb(240, 240, 240);
     width: 90vw;
   }
+
+  .cardVerifikacija{
+    margin:auto;
+    margin-top: 7vh;
+    background-color: rgb(240, 240, 240);
+    width: 60vw;
+  }
+
     
      h1{
          margin-top: 5vh;
@@ -31,13 +40,30 @@ body, html{
          padding-left: 6vw;
          padding-bottom: 3vw;
          padding-top: 3vw ;
-         width: fit-content;
+         width: 35vw;
          block-size: fit-content;
          line-height: 2vw;
          border-radius: 5%;
          text-align: left;
          background-color: rgb(255, 255, 255);
      }
+
+     .editPocetna{
+      position: relative;
+      margin:auto;
+      margin-top: 5vh;
+      margin-bottom: 5vh;
+      padding-right:6vw;
+      padding-left: 6vw;
+      padding-bottom: 3vw;
+      width: 80%;
+      block-size: fit-content;
+      line-height: 2vw;
+      border-radius: 5%;
+      text-align: left;
+  }
+
+
      .urediPodatke
      {
       position: relative;
@@ -62,9 +88,7 @@ body, html{
      
      
 
-     .dropdown-menu{
     
-     }
 
      .natrag i{
       position:absolute;
@@ -237,10 +261,10 @@ body, html{
    left:38vw;
 }
 
-.form-control{
+/*.form-control{
   height: 7vh;
   width: 30vw;
-}
+}*/
  
 .slika{
   border: none;

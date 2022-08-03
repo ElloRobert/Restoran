@@ -125,7 +125,7 @@ body, html{
       border: none;
     }
     nav{
-        position: absolute;
+        position:absolute;
         top:0vw;
         left: 0vw;
         right: 0vw;
@@ -138,11 +138,14 @@ body, html{
         padding-top: 1.5vh;
       }
 
+
+
     .natrag i{
         position:absolute;
-        left: 5vw;
-        top: 6vh;
+        left: 0vw;
+        top: 5vh;
         color: white;
         font-size: 2.5vh ;
        }
+
    

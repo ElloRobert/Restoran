@@ -7,24 +7,20 @@
     <title>Document</title>
     <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="{{ asset('css/StyleUredi.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/StyleAppLogin.css') }}" rel="stylesheet">
+
 </head>
 
 <body>
     <nav class="navbar">
-            <div class="container">
-                <div >
-
-                        <div id="main-menu">
-                        
-                           <a href="/home" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
-                        </div>
-                      
-                          
-                                  </div>
-            </div>
-                   
-                    </nav>
+        <div class="container">
+                   <div >
+                    <div id="main-menu">
+                       <a href="/" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+        </div>
+        </div>
+    </nav>
   
     <form method="post" action="/home/EditKorisnikAdminStore" class="uredi">
         @csrf

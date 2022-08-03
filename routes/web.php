@@ -3,6 +3,7 @@
 use App\Http\Controllers\IspisProizvodaController;
 use App\Http\Controllers\ProizvodiController;
 use App\Http\Controllers\UpitiController;
+use App\Http\Controllers\editPocetnaController;
 use App\Http\Controllers\NarudzbeController;
 use App\Http\Controllers\Auth\VerificationController;
 use Illuminate\Support\Facades\DB;
@@ -12,6 +13,7 @@ use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\UsersExport;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 
 /*
@@ -58,6 +60,18 @@ Route :: resource('/Narudzbe','App\Http\Controllers\NarudzbeController');
 
 Auth::routes(['verify' => true]);
 
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+
+ 
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+ 
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
 //Route::get('/email/verify', [App\Http\Controllers\Auth\VerificationController::class,'__construc']);
@@ -92,3 +106,6 @@ Route::get('/download',[App\Http\Controllers\AdminController::class,'export'] );
 
 Route::get('/Dodaj', [App\Http\Controllers\DodajController::class, 'index']);
 Route::post('/Dodaj/store', [App\Http\Controllers\DodajController::class, 'store']);
+
+
+Route::post('/home/UrediPocetnu',[App\Http\Controllers\editPocetnaController::class, 'store']);

@@ -33,17 +33,15 @@
       
         <nav class="navbar">
             <div class="container">
-                <div >
-
+                       <div >
                         <div id="main-menu">
-                        
                            <a href="/" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
                         </div>
                         @if(isset(Auth::user()->name))
                         <div class="dropdown odjava">
                                     <a class="dropdown-toggle" type="button" id="dropdownMenuButton " data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         @if(isset(Auth::user()->name))
-                                        <img src="../storage/SlikaProfila/{{$trenutniKorisnik->Slika}}" alt="{{$trenutniKorisnik->Slika}} " class="KorisnikSlika">
+                                        <img src="../storage/SlikaProfila/{{Auth::user()->Slika}}" alt="{{Auth::user()->Slika}}" class="KorisnikSlika"> 
                                          {{Auth::user()->name}} 
                                          @else 
                                          Admin   

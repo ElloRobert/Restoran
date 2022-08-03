@@ -2,14 +2,14 @@
 
 @section('content')
                 <div >
-                    <form method="POST" action="{{ route('register') }}" class="uredi" >
+                    <form method="POST" action="{{ route('register')}}" class="uredi" >
                         @csrf
                         <h1>{{ __('Registriraj se:') }}</h1>
                         <div >
                             <label for="name" >{{ __('Ime:') }}</label>
 
                             <div >
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="input form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">

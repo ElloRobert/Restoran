@@ -22,6 +22,9 @@
                   <li class="nav-item">
                     <a class="nav-link" id="Korisnici">Korisnici</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pocetnaStranica">Pocetna stranica</a>
+                  </li>
                 </ul>
               </div>
      <div class="card-body">
@@ -110,7 +113,7 @@
               
               </div>
     
-          <div class=" upiti">
+          <div class="upiti">
               <table  class="table_id">
                     <thead>
                       <th>ID</th>
@@ -120,8 +123,7 @@
                       <th>Upit</th>
                       <th>Vrijeme upita</th>
                       @if($korisnik==true)
-                      <th>Odgovor gumb</th>
-                      <th>Obrisi gumb</th>
+                      <th>gumbi</th>
                       @endif
                       <th>Vrijeme odgovora</th>
                       </tr>
@@ -138,8 +140,10 @@
                         <td> {{$upit->Upit}}    </td>
                         <td> {{$upit->created_at}}</td>
                         @if($korisnik==true)
-                        <td><a href='/home/editUpiti/{{$upit->id}}'   class="btn btn-success" >POSLANO</a></td>
-                        <td><a href="#" class="btn btn-danger upit-delete" data-toggle="modal" data-target="#myModal" data-upit_id="{{$upit->id}}">OBRIŠI</a></td>
+                        <td class="gumbi">
+                        <a href='/home/editUpiti/{{$upit->id}}'  class="zelena"><i class="fa-solid fa-check"></i></a>
+                        <a href="#"  data-toggle="modal" data-target="#myModal" data-upit_id="{{$upit->id}}"><i class="fa-solid fa-trash-can"></i></a>
+                        </td>
                         @endif
                         <td>{{$upit-> updated_at}} </td>
                       </tr> 
@@ -258,7 +262,93 @@
                   @endif
                 </tbody>    
               </table>      
+           </div>
+          <div class="pocetnaStranica">
+            <h2>Uređivanje elemenata početne stranice</h2>
+            <form method="post" action="home/UrediPocetnu" class="editPocetna" enctype="multipart/form-data">
+              @csrf
+              <div class="container">
+                <div class="row">
+                <div class="col-4">
+                   <label for="naslov">Naslov:</label><br>
+                   <input type="text" name="naslov" id="naslov" class="form-control input" placeholder="Naslov" value="{{$pocetna[0]->naslov}}">
+                </div>
+                <div class="col-8">
+              <label for="slogan">Slogan:</label><br>
+              <input type="text" name="slogan" id="slogan" class="form-control input" placeholder="Slogan" value="{{$pocetna[0]->slogan}}">
+                </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-6">
+              <label for="tel">Tel:</label><br>
+              <input type="text" name="tel" id="tel" class="form-control input" placeholder="Tel" value="{{$pocetna[0]->tel}}">
+                  </div>
+                  <div class="col-6">
+              <label for="email">Email:</label><br>
+              <input type="text" name="email" id="email" class="form-control input" placeholder="email" value="{{$pocetna[0]->email}}">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-4">
+              <label for="ulica">Ulica:</label><br>
+              <input type="text" name="ulica" id="ulica" class="form-control input" placeholder="Ulica" value="{{$pocetna[0]->ulica}}">
+                  </div>
+                  <div class="col-4">
+              <label for="broj">Kućni broj:</label><br>
+              <input type="number" name="broj" id="broj" class="form-control input" placeholder="Kućni broj" value="{{$pocetna[0]->broj}}">
+                  </div>
+                  <div class="col-4">
+              <label for="mjesto">Mjesto:</label><br>
+              <input type="text" name="mjesto" id="mjesto" class="form-control input" placeholder="Mjesto" value="{{$pocetna[0]->mjesto}}">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-7">
+              <label for="pocetakTjedan">Radno vrijemme ponedjeljak - četvrtak:</label><br>
+                  </div>
+                  <div class="col-5">
+              <input type="number" name="pocetakTjedan" id="pocetakTjedan" class="form-control input" max=24 min=0 placeholder="Početak rada" value="{{$pocetna[0]->pocetakTjedna}}">
+              <input type="number" name="krajTjedan" id="krajTjedan" class="form-control input" max=24 min=0 placeholder="Kraj rada" value="{{$pocetna[0]->krajTjedna}}">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-7">
+              <label for="pocetakPetak">Radno vrijemme petak i subota:</label><br>
+                  </div>
+                  <div class="col-5">
+              <input type="number" name="pocetakPetak" id="pocetakPetak" class="form-control input" max=24 min=0 placeholder="Početak rada" value="{{$pocetna[0]->pocetakPetak}}">
+              <input type="number" name="krajPetak" id="krajPetak" class="form-control input" max=24 min=0 placeholder="Kraj rada" value="{{$pocetna[0]->krajPetak}}">
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <div class="col-7">
+              <label for="pocetakNedjelja">Radno vrijemme nedjelja:</label><br>
+                  </div>
+                  <div class="col-5">
+              <input type="number" name="pocetakNedjelja" id="pocetakNedjelja" class="form-control input" max=24 min=0 placeholder="Početak rada" value="{{$pocetna[0]->pocetakNedjelja}}">
+              <input type="number" name="krajNedjelja" id="krajNedjelja" class="form-control input" max=24 min=0 placeholder="Kraj rada"value="{{$pocetna[0]->krajNedjelja}}">
+                  </div>
+                </div>
+                <br>
+              <div class="row">
+                <div class="col-7">
+                <label for="img">Odaberi fotografiju naslovne stranice:</label>
+                </div>
+                <div class="col-5">
+                <input class="slika" type="file" id="slika" name="slika" value="" accept="image/*">
+                </div>
+               </div>
+               <br>
+               <input type="submit" name="potvrdi" value="Spremi promjene" class="btn btn-success">
+
+            </form>
           </div>
+            </div>      
             </div>      
             
    </div>       
@@ -354,6 +444,7 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
   //Prikaz narudzbe
    $("#PregledNarudzbi").addClass( "active");
    $(".PregledNarudzbi").show();
+   $(".pocetnaStranica").hide();
    $("#Narudzbe").hide();
    $(".upiti").hide();
    $(".proizvodi").hide();
@@ -372,6 +463,8 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
     $(".proizvodi").hide();
     $(".korisnik").hide();
     $(".PregledNarudzbi").hide();
+    $("#pocetnaStranica").removeClass( "active");
+    $(".pocetnaStranica").hide();
     });
   $("#Upiti").click(function(){
     $("#Upiti").addClass( "active");
@@ -384,6 +477,8 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
     $(".proizvodi").hide();
     $(".korisnik").hide();
     $(".PregledNarudzbi").hide();
+    $("#pocetnaStranica").removeClass( "active");
+    $(".pocetnaStranica").hide();
     });
   $("#Korisnici").click(function(){
     $("#Korisnici").addClass( "active");
@@ -396,6 +491,8 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
     $(".upiti").hide();
     $(" .narudzbe").hide();
     $(".PregledNarudzbi").hide();
+    $("#pocetnaStranica").removeClass( "active");
+    $(".pocetnaStranica").hide();
   });
   $("#PregledNarudzbi").click(function(){
     $("#PregledNarudzbi").addClass( "active");
@@ -408,8 +505,9 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
     $(".proizvodi").hide();
     $(".upiti").hide();
     $(" .narudzbe").hide();
+    $("#pocetnaStranica").removeClass( "active");
+    $(".pocetnaStranica").hide();
   });
-
 
   $("#Proizvodi").click(function(){
     $("#Proizvodi").addClass( "active");
@@ -418,6 +516,24 @@ $('.table_id').on( 'length.dt', function ( e, settings, len ) {
     $("#Upiti").removeClass( "active");
     $("#Narudzbe").removeClass( "active");
     $(".proizvodi").show();
+    $(".upiti").hide();
+    $(" .narudzbe").hide();
+    $(".korisnik").hide();
+    $(".PregledNarudzbi").hide();
+    $("#pocetnaStranica").removeClass( "active");
+    $(".pocetnaStranica").hide();
+  });
+
+
+  $("#pocetnaStranica").click(function(){
+    $("#pocetnaStranica").addClass( "active");
+    $(".pocetnaStranica").show();
+    $("#Proizvodi").removeClass( "active");
+    $("#Korisnici").removeClass( "active");
+    $("#PregledNarudzbi").removeClass( "active");
+    $("#Upiti").removeClass( "active");
+    $("#Narudzbe").removeClass( "active");
+    $(".proizvodi").hide();
     $(".upiti").hide();
     $(" .narudzbe").hide();
     $(".korisnik").hide();

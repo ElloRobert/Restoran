@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\File;
 use Barryvdh\DomPDF\PDF;
-
+use App\Models\Pocetna; 
 
 class HomeController extends Controller
 {
@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware(['auth']);
+        $this->middleware(['auth', 'verified']);
     }
 
     /**
@@ -53,8 +53,10 @@ class HomeController extends Controller
         $narudzbe = Narudzbe::all();
         $upiti = Upiti::all();
         $NaruceniProizvodi= narudzbe_proizvodi::all();
+        $pocetna= Pocetna::all();
+      
         return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('proizvodi',$proizvodi)
-        ->with('korisnici',$korisnici)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('trenutniKorisnik',$trenutniKorisnik);
+        ->with('korisnici',$korisnici)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('trenutniKorisnik',$trenutniKorisnik)->with('pocetna',$pocetna);
       }
       else{
         $korisnik=false;
@@ -63,7 +65,10 @@ class HomeController extends Controller
         $upiti = Upiti::all()->where('Posiljatelj',$id);
         $proizvodi=Proizvodi::all();
         $NaruceniProizvodi= narudzbe_proizvodi::all();
-        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)->with('proizvodi',$proizvodi)->with('trenutniKorisnik',$trenutniKorisnik);
+        $pocetna= Pocetna::all();
+       
+        return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)
+        ->with('proizvodi',$proizvodi)->with('trenutniKorisnik',$trenutniKorisnik)->with('pocetna',$pocetna);
       }
     
     }
