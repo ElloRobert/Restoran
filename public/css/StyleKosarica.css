@@ -1,7 +1,8 @@
 body, html{
     background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
     background-repeat: no-repeat;
-  
+    margin: 0;
+    padding: 0;
    }
    .naslov{
     text-align: center;
@@ -61,9 +62,9 @@ body, html{
      .uredikosarica{
       position: relative;
       border: 2px solid black;
-      margin-left: 25vw;
-      margin-top: 5vh;
-      margin-bottom: 5vw;
+      margin: auto;
+      margin-top: 3vh;
+      margin-bottom: 3vh;
       padding-right:6vw;
       padding-left: 6vw;
       padding-bottom: 3vw;
@@ -75,13 +76,7 @@ body, html{
       text-align: left;
       background-color: rgb(255, 255, 255);
      }
-     .natrag{
-         position: relative;
-         left: -17vw;
-         top:-3.5vw;
-         height: 2vw;
-         width: 2vw;
-     }
+ 
      .naslov{
       text-align: center;
      }
@@ -104,3 +99,4 @@ body, html{
     .selected{
         color: aqua;
     }
+  

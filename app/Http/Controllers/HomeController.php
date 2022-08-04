@@ -61,6 +61,7 @@ class HomeController extends Controller
       else{
         $korisnik=false;
         $id = Auth::user()->id;
+        $korisnici= User::all();
         $narudzbe = Narudzbe::all()->where('Narucitelj',$id);
         $upiti = Upiti::all()->where('Posiljatelj',$id);
         $proizvodi=Proizvodi::all();
@@ -68,7 +69,7 @@ class HomeController extends Controller
         $pocetna= Pocetna::all();
        
         return view('home')->with('narudzbe',$narudzbe)->with('upiti',$upiti)->with('korisnik',$korisnik)->with('NaruceniProizvodi',$NaruceniProizvodi)
-        ->with('proizvodi',$proizvodi)->with('trenutniKorisnik',$trenutniKorisnik)->with('pocetna',$pocetna);
+        ->with('proizvodi',$proizvodi)->with('trenutniKorisnik',$trenutniKorisnik)->with('pocetna',$pocetna)->with('korisnici',$korisnici);
       }
     
     }

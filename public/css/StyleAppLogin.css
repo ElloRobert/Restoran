@@ -88,7 +88,9 @@ body, html{
      
      
 
+     .dropdown-menu{
     
+     }
 
      .natrag i{
       position:absolute;
@@ -106,7 +108,7 @@ body, html{
    }
    .odjava :hover{
     /*border-right: 0.2vw solid white;*/
-    color: white;
+    color: rgb(5, 5, 5);
     border-bottom: 0.2vw solid white;
     text-transform: uppercase;
   }
@@ -250,9 +252,7 @@ body, html{
  }
 
  .button-dodaj{
-  position: relative;
-   bottom: 3vh;
-   right:36vw;
+  margin-bottom: 2vh;
 }
 .button-excel{
   position: relative;
@@ -308,7 +308,7 @@ nav{
   bottom: 0vw;
   text-align: center;
   height: 6.5vh;
-  width: 100vw;
+  width: 100%;
   background-color:rgb(5, 5, 5);
   opacity: 80%;
   padding-top: 1.5vh;
@@ -337,3 +337,27 @@ nav{
 .gumbi .zelena{
   background-color: green;
 }
+.UrediSlika{
+  position: absolute;
+  left: 3vw;
+  width: 7vw;
+  height: 7vw;
+  border-radius: 50%;
+}
+.uredikosarica{
+  position: relative;
+  border: 2px solid black;
+   margin: auto;
+  padding-right:6vw;
+  padding-left: 6vw;
+  padding-bottom: 3vw;
+  padding-top: 3vw ;
+  width: fit-content;
+  block-size: fit-content;
+  line-height: 2vw;
+  border-radius: 5%;
+  text-align: left;
+  margin-bottom: 5vw;
+  margin-top: 2vw;
+  background-color: rgb(255, 255, 255);
+ }

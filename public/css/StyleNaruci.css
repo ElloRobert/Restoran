@@ -25,7 +25,6 @@
        border: 1.7px solid black;
        line-height: 1.5vw;
        height: 3vw;
-       width: 35vw;
        font-size: 2.5vh;
        margin-top: 0.5vh;
        margin-bottom: 0.5vh;
@@ -45,7 +44,7 @@
    .uredi{
        position: relative;
        border: 2px solid black;
-       margin-left: 25vw;
+       margin: auto;
        padding-right:5vw;
        padding-left: 6vw;
        padding-bottom: 5vh;
@@ -55,35 +54,29 @@
        line-height: 2vw;
        border-radius: 5%;
        text-align: left;
-       margin-bottom: 10vw;
-       margin-top: 10vw;
+       margin-bottom: 5vw;
+       margin-top: 5vw;
        background-color: rgb(255, 255, 255);
    }
 
    .uredikosarica{
     position: relative;
     border: 2px solid black;
-    margin-left: 25vw;
+    margin:auto;
     padding-right:6vw;
     padding-left: 6vw;
-    padding-bottom: 8.5vw;
+    padding-bottom: 3vw;
     padding-top: 3vw ;
-    height: 85vh;
+    block-size: fit-content;
     width: 50vw;
     line-height: 2vw;
     border-radius: 5%;
     text-align: left;
-    margin-bottom: 5vw;
-    margin-top: 2vw;
+    margin-top: 13vh;
+ 
     background-color: rgb(255, 255, 255);
    }
-   .natrag{
-       position: relative;
-       left: -17vw;
-       top:-3.5vw;
-       height: 2vw;
-       width: 2vw;
-   }
+
    .naslov{
     text-align: center;
    }

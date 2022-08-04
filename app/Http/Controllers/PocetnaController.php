@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use  App\Models\Pocetna;
 use  App\Models\Proizvodi;
 //use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\DB;
@@ -18,7 +18,8 @@ class PocetnaController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {  
+    {   $pocetna=Pocetna::all();
+       
         $proizvodi = Proizvodi::all();
         $i=count($proizvodi);
         $prvoJelo=Proizvodi::all()->random()->id;
@@ -32,10 +33,10 @@ class PocetnaController extends Controller
         if(isset(Auth::user()->name)){
         $id = Auth::user()->id;
         $KorisnikSlika = User::find($id)->Slika;
-        return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2)->with('KorisnikSlika',$KorisnikSlika);
+        return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2)->with('KorisnikSlika',$KorisnikSlika)->with('pocetna',$pocetna);
         }
         else{
-            return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2);
+            return view('Welcome')->with('proizvod1',$proizvod1)->with('proizvod2',$proizvod2)->with('pocetna',$pocetna);
         }
     }
 

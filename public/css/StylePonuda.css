@@ -3,10 +3,10 @@
     box-sizing: border-box;
    
  }
- html, body{
-  padding: 0;
+ body, html{
+  background-color: rgb(194, 191, 191);
   margin: 0;
-  background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+  padding: 0;
  }
    
  /*Narudzbe poslagani proizvodi*/
@@ -70,6 +70,46 @@
     text-shadow: 8px 8px 8px #58585f;
     transition: 0.1s;
   
+  }
+  .naslov{
+    text-align: center;
+    margin:auto;
+    margin-top: 5vh;
+   }
+
+   nav{
+    position: absolute;
+    top:0vw;
+    left: 0vw;
+    right: 0vw;
+    bottom: 0vw;
+    text-align: left;
+    height: 6.5vh;
+    width: 100%;
+    background-color:rgb(5, 5, 5);
+    opacity: 80%;
+    padding-top: 1.5vh;
+  }
+
+  .natrag i{
+    position:absolute;
+    left: 3vw;
+    top: 2vh;
+    color: white;
+    font-size: 2.5vh ;
+   }
+
+   .container{
+    margin: auto;
+    padding-right: 8vw;
+    margin-top: 15vh;
+    max-width: 90%;
+  }
+
+
+   img{
+    width:15vw;
+     height:20vh;
   }
  
    

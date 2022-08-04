@@ -55,11 +55,11 @@ class NarudzbeController extends Controller
 
             if(isset(Auth::user()->id)){
                 $korisnik= User::find(Auth::user()->id);
-                if($korisnik->vip =='VIP I'){
+                if($korisnik->hasRole('VIP_I')){
                     $narudzba->Ukupno=0.8*($narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum)); 
                   
                 }
-                elseif($korisnik->vip =='VIP II')
+                elseif($korisnik->hasRole('VIP_II'))
                 $narudzba->Ukupno=0.9*($narudzba->Ukupno + ($OdabraniProizvod->Cijena* $sum)); 
                  
                 else{
@@ -82,11 +82,13 @@ class NarudzbeController extends Controller
         {
            $korisnik= User::find(Auth::user()->id);
            $korisnik->bodovi+=10;
-           if($korisnik->bodovi>100){
+           if($korisnik->bodovi>1000){
+            $korisnik->assignRole('VIP_I'); 
              $korisnik->vip='VIP I';
            }
-           elseif ($korisnik->bodovi>50) {
+           elseif ($korisnik->bodovi>500) {
             $korisnik->vip='VIP II';
+            $korisnik->assignRole('VIP_II'); 
            } 
             
            

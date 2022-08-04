@@ -16,7 +16,7 @@
         <div class="container">
                    <div >
                     <div id="main-menu">
-                       <a href="/" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
+                       <a href="/home" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
                     </div>
         </div>
         </div>

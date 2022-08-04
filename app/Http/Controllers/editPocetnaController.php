@@ -39,6 +39,7 @@ class editPocetnaController extends Controller
         $pocetna= Pocetna::find(1);
         $pocetna->naslov = $request->input('naslov');
         $pocetna->slogan= $request->input('slogan');
+        $pocetna->slogan2= $request->input('slogan2');
         $pocetna->tel= $request->input('tel');
         $pocetna->email= $request->input('email');
         $pocetna->ulica= $request->input('ulica');
@@ -54,7 +55,7 @@ class editPocetnaController extends Controller
    
             $file= $request->file('slika');
             $extension =$file->getClientOriginalExtension();
-            $filename =time().'.'.$extension;
+            $filename ='Restoran.'.$extension;
             Storage::putFileAs('public/PocetnaSlike', $file, $filename);
             $pocetna->slika= $filename;
            

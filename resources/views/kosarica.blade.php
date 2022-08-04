@@ -7,17 +7,27 @@ $Ukupna=0;
 
 <html>
     <head>
+        <link href="{{ asset('css/StyleAppLogin.css') }}" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{url('css/StyleKosarica.css')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="{{ asset('css/all.min.css') }}" rel="stylesheet">
     </head>
   <body>
-   
+
+    <nav class="navbar">
+        <div class="container">
+                   <div >
+                    <div id="main-menu">
+                       <a href="/" class="natrag"><i class="fa-solid fa-arrow-left"></i></a>
+                    </div>
+        </div>
+        </div>
+    </nav>
 
 <form action="/NarudzbeController@store" method="get" class="uredikosarica" >
      <div class="naslov">
      <h1 >Vaša košarica</h1>
-     <a href="/" class="natrag" ><i class="fa fa-arrow-left" style="font-size:36px"></i></a>
       </div>
       <br>
 <div class="container">

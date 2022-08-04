@@ -16,6 +16,7 @@
                   <li class="nav-item"  >
                     <a class="nav-link" id="Upiti">Upiti</a>
                   </li>
+                  @if($korisnik==true)
                   <li class="nav-item">
                     <a class="nav-link" id="Proizvodi" >Proizvodi</a>
                   </li>
@@ -25,10 +26,12 @@
                   <li class="nav-item">
                     <a class="nav-link" id="pocetnaStranica">Pocetna stranica</a>
                   </li>
+                  @endif
                 </ul>
               </div>
      <div class="card-body">
-          <div class="narudzbe">          
+          <div class="narudzbe"> 
+
               <table  class="table_id" >
                  <thead>
                      <tr >
@@ -112,6 +115,56 @@
              </div>
               
               </div>
+          <div class="PregledNarudzbi">
+                <table  class="table_id" >
+                  <thead>
+                      <tr >
+                      <th>ID</th>
+                      <th>Ime</th>
+                      <th>Cijena</th>
+                      <th>Vrijeme Narudžbe</th>
+                      <th>Status</th>
+                      @if($korisnik==true)
+                      <th>Akcije</th>
+                      @endif
+                      </tr>
+                  </thead>
+      
+                  <tbody>   
+                   @if(isset($narudzbe))
+                      @foreach ($narudzbe as $narudzba)
+                        <tr> 
+                        <td>  {{$narudzba->id}}    </td>
+                        <td>
+                          <?php
+                            if(isset($narudzba->Narucitelj)){
+                              $idKorisnika=$narudzba->Narucitelj;
+                             
+                              $korisnica= $korisnici->find($idKorisnika);
+                               echo  $korisnica->name;
+                            }
+                          ?>
+                        </td>
+                        <td> {{$narudzba->Ukupno}} kn  </td>
+                        <td> {{$narudzba->created_at}}</td>
+                        <td> {{$narudzba->Status}} </td>
+                        @if($korisnik==true)
+                        <td class="gumbi">
+                        <a href="/home/Status/{{$narudzba->id}}" class="zelena"  title="Poslano!"><i class="fa-solid fa-check"></i></a>
+                        <a href='/home/StatusOtkazi/{{$narudzba->id}}' class="crvena" title="Otkaži!"><i class="fa-solid fa-xmark"></i></a>
+                        <a href='/home/UrediNarudzbu/{{$narudzba->id}}' title="Uredi"><i class='fas fa-pencil-alt'> </i></a>
+                        <a href="/home/NarudzbaPDF/{{$narudzba->id}}" title="PDF dokument"><i class="fa-solid fa-print"></i></a>
+                        <button class='fas narudzba-delete ' data-toggle="modal" data-target="#myModal" data-narudzba_id="{{$narudzba->id}}" title="Obriši!"><i class='fas '>&#xf2ed;</i></button>
+                        @endif
+                        </td>
+                      
+                      @endforeach
+                      @else 
+                      Nema raspoloživih narudžbi
+                      @endif
+                    </tbody>    
+                  </table>      
+               </div>
     
           <div class="upiti">
               <table  class="table_id">
@@ -155,10 +208,11 @@
                      </tbody>
                   </table>
               </div>
+              @if($korisnik==true)
           <div class="proizvodi">
               @if($korisnik==true)
                <br>
-                  <a href='/Dodaj'   class='btn  btn-secondary btn-lg button-dodaj'  >+ PROIZVOD</a>
+               <a href='/Dodaj'   class='btn  btn-secondary btn-lg float-left button-dodaj'  >+ PROIZVOD</a>
                   <table class="table_id">
                     <thead>
                   <tr >
@@ -206,7 +260,7 @@
                      <tr> 
                        <td>{{$korisnik-> name}}</td>
                        <td>  {{$korisnik-> email}}</td>
-                       <td>{{$korisnik -> getRoleNames()[0]}}</td>
+                       <td>{{$korisnik -> getRoleNames()}}</td>
                        <td><a href='/home/EditKorisnikAdmin/{{$korisnik->id}}' class="btn btn-success" >UREDI</a></td>
                        <td><a href="#" class="btn btn-danger korisnik-delete" data-toggle="modal" data-target="#myModal" data-korisnik_id="{{$korisnik->id}}">OBRIŠI</a></td>
                        <td>{{$korisnik->bodovi}}</td>
@@ -218,65 +272,29 @@
                 @endif
                      </table>
                    </div> 
-          <div class="PregledNarudzbi">
-            <table  class="table_id" >
-              <thead>
-                  <tr >
-                  <th>ID</th>
-                  <th>Ime</th>
-                  <th>Cijena</th>
-                  <th>Vrijeme Narudžbe</th>
-                  <th>Status</th>
-                  <th>Akcije</th>
-                  </tr>
-              </thead>
-  
-              <tbody>   
-               @if(isset($narudzbe))
-                  @foreach ($narudzbe as $narudzba)
-                    <tr> 
-                    <td>  {{$narudzba->id}}    </td>
-                    <td>
-                      <?php
-                        if(isset($narudzba->Narucitelj)){
-                          $idKorisnika=$narudzba->Narucitelj;
-                          $korisnica= $korisnici->find($idKorisnika);
-                           echo  $korisnica->name;
-                        }
-                      ?>
-                    </td>
-                    <td> {{$narudzba->Ukupno}} kn  </td>
-                    <td> {{$narudzba->created_at}}</td>
-                    <td> {{$narudzba->Status}} </td>
-                    <td class="gumbi">
-                    <a href="/home/Status/{{$narudzba->id}}" class="zelena"><i class="fa-solid fa-check"></i></a>
-                    <a href='/home/StatusOtkazi/{{$narudzba->id}}' class="crvena"><i class="fa-solid fa-xmark"></i></a>
-                    <a href='/home/UrediNarudzbu/{{$narudzba->id}}'><i class='fas fa-pencil-alt'> </i></a>
-                    <a href="/home/NarudzbaPDF/{{$narudzba->id}}"><i class="fa-solid fa-print"></i></a>
-                    <button class='fas narudzba-delete ' data-toggle="modal" data-target="#myModal" data-narudzba_id="{{$narudzba->id}}"><i class='fas '>&#xf2ed;</i></button>
-                    </td>
-                  
-                  @endforeach
-                  @else 
-                  Nema raspoloživih narudžbi
-                  @endif
-                </tbody>    
-              </table>      
-           </div>
+          
           <div class="pocetnaStranica">
             <h2>Uređivanje elemenata početne stranice</h2>
             <form method="post" action="home/UrediPocetnu" class="editPocetna" enctype="multipart/form-data">
               @csrf
               <div class="container">
                 <div class="row">
-                <div class="col-4">
+                <div class="col-8 center">
                    <label for="naslov">Naslov:</label><br>
                    <input type="text" name="naslov" id="naslov" class="form-control input" placeholder="Naslov" value="{{$pocetna[0]->naslov}}">
                 </div>
-                <div class="col-8">
-              <label for="slogan">Slogan:</label><br>
-              <input type="text" name="slogan" id="slogan" class="form-control input" placeholder="Slogan" value="{{$pocetna[0]->slogan}}">
                 </div>
+                <br>
+                <div class="row">
+                  <div class="col-6">
+                    <label for="slogan">Slogan:</label><br>
+                    <input type="text" name="slogan" id="slogan" class="form-control input" placeholder="Slogan" value="{{$pocetna[0]->slogan}}">
+                      </div>
+                  <div class="col-6">
+                    <label for="slogan2">Slogan2:</label><br>
+                    <input type="text" name="slogan2" id="slogan2" class="form-control input" placeholder="Slogan2" value="{{$pocetna[0]->slogan2}}">
+                  </div>
+
                 </div>
                 <br>
                 <div class="row">
@@ -347,10 +365,12 @@
                <input type="submit" name="potvrdi" value="Spremi promjene" class="btn btn-success">
 
             </form>
+          
+          
           </div>
             </div>      
             </div>      
-            
+         @endif   
    </div>       
             
 <!-- Modal Korisnik -->

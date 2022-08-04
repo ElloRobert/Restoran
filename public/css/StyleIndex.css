@@ -5,7 +5,8 @@
  }
  body, html{
    margin:0;
-   padding:0 ;
+   padding:0;
+   background-color: inherit;
  }
  /*Navigacija*/
  nav{
@@ -14,41 +15,42 @@
      left: 0vw;
      right: 0vw;
      bottom: 0vw;
-     text-align: center;
      height: 3vw;
+     text-align: center;
+     padding-top:1vh;
      width: 100vw;
      background-color:rgb(0, 0, 0);
-     opacity: 80%;
-    
-     
-  
+     opacity: 90%; 
+     z-index: 10;
  }
+
+
  
  #main-menu a{
      position: relative;
-     top: 0.9vw;
-     text-align: center;
+     top: 0vw;
      font-size: 1.8vh;
      text-decoration: none;
      color: white;
      padding: 0.8vw 2vw;
-     padding-top: 5vw;
      height: 2vw;
      border-right: 0.2vw solid rgb(15, 15, 15);
     
  }
  
  #main-menu a:hover{
-     border-right: 0.2vw solid white;
-     border-left: 0.2vw solid white;
+     border-bottom: 0.2vw solid white;
+     /*border-left: 0.2vw solid white;*/
      text-transform: uppercase;
  }
+
+
  
  #prviLink{
      border-left: 0.2vw solid rgb(15, 15, 15);
  }
  .sidenav {
-     height: 10vw;
+     height: 25vw;
      width:  4vw;
      position: fixed;
      z-index: 1;
@@ -72,7 +74,7 @@
    }
    
  /*Narudzbe poslagani proizvodi*/
- .card {
+ /*.card {
      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
      max-width: 20vw; 
      margin-left:10vw;
@@ -81,36 +83,15 @@
      text-align: center ;
      font-family: arial;
      display: inline-grid;
-     grid-template-columns: auto ;
-    
-     
-     
-   }
+     grid-template-columns: auto; 
+   }*/
    
    .price {
      color: grey;
      font-size: 2.5vh;
    }
    
-   .card .button {
-     border: none;
-     outline: 0;
-     padding: 1.7vh;
-     padding-left: 2vw;
-     padding-right: 2vw;
-     margin-bottom: 3vh ;
-     color: white;
-     background-color:#000;
-     text-align: center;
-     cursor: pointer;
-     font-size: 2vh;
-     text-decoration: none;
-     
-   }
-   
-   .card .button:hover {
-     opacity: 0.7;
-   }
+
  
  .Potvrdi{
    position: relative;
@@ -141,13 +122,20 @@
      height: 97vh;
      background-color: white;
    }
+  
+   .vise{
+    text-align: right;
+    margin-right: 2vw;
+    margin-bottom: 5vh;
+  }
+  
  
    /* Pocetna*/
    .section1 {
-     background-image: url("../Slike/Restoran.png");
+     background-image: url("../storage/PocetnaSlike/Restoran.jpg");
      background-repeat: no-repeat;
      background-size: cover;
-     color: rgb(230, 196, 9);
+     color: rgb(255, 221, 29);
      text-align: center;
      font-size: 3vh;
      padding-top: 4vw;
@@ -171,21 +159,19 @@
  /*O nama*/
  .section3 {
      padding-top: 1vh;
+     padding-bottom:5vh;
      margin-right: 0vw;
      width: 100%;
      height: 85vh;
-     padding-bottom: 10vw;
+     margin-bottom: 0vh;
      box-sizing: border-box;
      background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
     
    }
    #kontakt{
-     padding-left: 5vw;
+     padding-right: 5vw;
    }
-   input{
-     height: 4vh;
-     width: 30vw;
-   }
+ 
    textarea{
      height: 15vh;
      width: 30vw;
@@ -195,19 +181,12 @@
      float: left;
      width: 50%;
      height: 75vh;
+    
    }
-   footer{
-     
-     text-align: center;
-     padding-bottom: 1vh;
-   }
+
    .mapa{
-     position: relative;
-     left: 16vw;
-     bottom: 10vh;
-     height: 30vh;
-     width: 25vw;
-     border: 1vw double black;
+     height: 35vh;
+     width: 35vw;
    }
    .potvrdiUpit{
     
@@ -222,12 +201,14 @@
      text-decoration: none;
    }
    .admin{
+    border-left: 0.2vw solid rgb(15, 15, 15);
     position: relative;
     left: 25vw;
   }
   #kosarica{
+    border-left: 0.2vw solid rgb(15, 15, 15);
     position: relative;
-    right: 28vw
+    right: 28vw;
   }
   .KorisnikSlika{
     vertical-align: middle;
@@ -236,3 +217,35 @@
     border-radius: 50%;
   }
 
+  .container{
+  margin: auto;
+  margin-top: 5vh;
+  padding-left: 2vw;
+  max-width: 60%;
+}
+
+#kontaktRadnoVrijeme{
+  max-width: 90%;
+}
+
+#kontaktRadnoVrijeme .row{
+  margin-bottom: 5vh;
+}
+
+img{
+  width:10vw;
+   height:23vh;
+}
+
+
+
+footer{
+  background-image: radial-gradient(circle, white, rgb(209, 207, 207), rgb(128, 126, 126));
+  border-top: 1px solid black;
+  height: 5vh;
+  width: 100%;
+  padding-top:1vh;
+  margin-top: 0vh;
+  text-align: center;
+  padding-bottom: 2vh;
+}
